@@ -51,7 +51,7 @@ var streznik = http.createServer(function(zahteva, odgovor) {
   posredujStaticnoVsebino(odgovor, predpomnilnik, absolutnaPotDoDatoteke);
 });
 
-streznik.listen(process.env.PORT, function() {
+streznik.listen(3000, function() {
   console.log("Strežnik posluša na portu " + process.env.PORT + ".");
 });
 
