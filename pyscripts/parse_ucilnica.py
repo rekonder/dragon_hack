@@ -3,7 +3,6 @@ __author__ = 'Tine'
 import requests
 from bs4 import BeautifulSoup
 import json
-import re
 
 aps2_link = "https://ucilnica.fri.uni-lj.si/course/view.php?id=309"
 
@@ -47,11 +46,11 @@ with requests.Session() as v:
         p = v.post(site, data=payload) ## saying our credentials to the site
         pk=v.cookies  ## saving cookies as "pk"
 
-file = open("../pyresources/ucilnica_data.txt","w")
+
 
 
 aps_data = getApsData(pk)
-
+file = open("../pyresources/ucilnica.json","w",encoding="utf-8")
 json.dump(aps_data,file)
 
 file.close()

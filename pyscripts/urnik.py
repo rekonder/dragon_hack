@@ -66,7 +66,7 @@ for hour in hours:
 
 print(predavanja)
 
-file = open("../pyresources/urnik.txt","w")
-json.dump(vaje,file,ensure_ascii=False)
-json.dump(predavanja,file, ensure_ascii=False)
+file = open("../pyresources/urnik.json","w",encoding="utf-8")
+json.dump({"vaje": vaje, "predavanja": predavanja},file, ensure_ascii=False)
+
 file.close()

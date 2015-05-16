@@ -8,7 +8,7 @@ myfile = open(filename,encoding="utf-8")
 unicode_html = myfile.read()
 soup = BeautifulSoup(unicode_html)
 
-OUT = open("../pyresources/studis_data.txt","w")
+
 
 
 def getStudentData(soup):
@@ -55,9 +55,9 @@ def getCourseData(soup):
 
 student = getStudentData(soup)
 predmeti = getCourseData(soup)
-json.dump(student,OUT)
-json.dump(predmeti,OUT)
-OUT.close()
+file = open("../pyresources/studis.json","w",encoding="utf-8")
+json.dump({"student": student, "predmeti": predmeti}, file,ensure_ascii=False)
+file.close()
 
 
 
