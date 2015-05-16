@@ -40,7 +40,6 @@ def getApsData(pk):
 
         aps2["asistenti"] = ",".join(mails)
 
-
         return aps2
 
 
