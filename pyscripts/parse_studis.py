@@ -18,7 +18,8 @@ student["surname"] = tmp[1]
 json.dump(student,OUT)
 
 program = soup.find_all("div", "izbraniVpis")[0]
-student["program"] = program.find_all("p")[0].contents[0].strip()
+txt = program.find_all("p")[0].contents[0].strip()
+student["program"] = txt[0:10] + " "
 print(student)
 OUT.close()
 
