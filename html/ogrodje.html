@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<link rel="shortcut icon" href="icon.jpg" type="image/jpeg">
+	    <title>Student Informator</title>
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			/*body {padding: 10px;}*/
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			
+			<div class="row" id="vizitke">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">APS2</div>
+ 					</div>
+					<div class="panel-body">
+						<table id="predavatelj">
+							<tr>
+								<th>Predavatelj</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="asistenti">						
+							<tr>
+								<th>Asistenti</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="fbfeed">
+							<tr>
+								<th>FB objave</th>
+							</tr>
+							<tr>
+								<td>fb1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="naloge">
+							<tr>
+								<th>Naloge</th>
+							</tr>
+							<tr>
+								<td>Naloga1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="izpiti">
+							<tr>
+								<th>Izpiti</th>
+							</tr>
+							<tr>
+								<td>Izpit1</td>
+							</tr>
+						</table>
+						
+						
+					</div>
+				</div>
+				
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">ORS</div>
+ 					</div>
+					<div class="panel-body">
+						<table id="predavatelj">
+							<tr>
+								<th>Predavatelj</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="asistenti">						
+							<tr>
+								<th>Asistenti</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="fbfeed">
+							<tr>
+								<th>FB objave</th>
+							</tr>
+							<tr>
+								<td>fb1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="naloge">
+							<tr>
+								<th>Naloge</th>
+							</tr>
+							<tr>
+								<td>Naloga1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="izpiti">
+							<tr>
+								<th>Izpiti</th>
+							</tr>
+							<tr>
+								<td>Izpit1</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">PPJ</div>
+ 					</div>
+					<div class="panel-body">
+						<table id="predavatelj">
+							<tr>
+								<th>Predavatelj</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="asistenti">						
+							<tr>
+								<th>Asistenti</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="fbfeed">
+							<tr>
+								<th>FB objave</th>
+							</tr>
+							<tr>
+								<td>fb1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="naloge">
+							<tr>
+								<th>Naloge</th>
+							</tr>
+							<tr>
+								<td>Naloga1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="izpiti">
+							<tr>
+								<th>Izpiti</th>
+							</tr>
+							<tr>
+								<td>Izpit1</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">TIS</div>
+ 					</div>
+					<div class="panel-body">
+						<table id="predavatelj">
+							<tr>
+								<th>Predavatelj</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="asistenti">						
+							<tr>
+								<th>Asistenti</th>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+							<tr>
+								<td>Ime Priimek</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="fbfeed">
+							<tr>
+								<th>FB objave</th>
+							</tr>
+							<tr>
+								<td>fb1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="naloge">
+							<tr>
+								<th>Naloge</th>
+							</tr>
+							<tr>
+								<td>Naloga1</td>
+							</tr>
+						</table>
+						
+						<hr>
+						
+						<table id="izpiti">
+							<tr>
+								<th>Izpiti</th>
+							</tr>
+							<tr>
+								<td>Izpit1</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			
+			
+		</div>
+	</body>
+</html>
