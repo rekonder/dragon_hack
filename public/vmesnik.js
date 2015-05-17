@@ -457,19 +457,19 @@ $.getJSON( "data/naloge.json", function( data ) {
 	
 	for (i in kvizi){
 		if(kvizi[i].name == "APS2"){
-			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
 			i1++;
 		}
 		else if(kvizi[i].name == "ORS"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
 			i2++;
 		}
 		else if(kvizi[i].name == "PPJ"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
 			i3++;
 		}
 		else if(kvizi[i].name == "TIS"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
 			i4++;
 		}
 	}
@@ -484,7 +484,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 			else{
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
 			}
-			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td>' + naloge[i].rok + '</td><td>'+s+'</td></tr>');
+			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 		
 		else if(naloge[i].name == "ORS"){
@@ -496,7 +496,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 			else{
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
 			}
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td>' + naloge[i].rok + '</td><td>'+s+'</td></tr>');
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 		
 		else if(naloge[i].name == "PPJ"){
@@ -508,7 +508,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 			else{
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
 			}
-			$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td>' + naloge[i].rok + '</td><td>'+s+'</td></tr>');
+			$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 		
 		else if(naloge[i].name == "TIS"){
@@ -520,7 +520,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 			else{
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
 			}
-			$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td>' + naloge[i].rok + '</td><td>'+s+'</td></tr>');
+			$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 	}
 	

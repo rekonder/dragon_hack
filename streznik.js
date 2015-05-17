@@ -44,7 +44,6 @@ var streznik = http.createServer(function(zahteva, odgovor) {
     potDoDatoteke = 'public/index.html';
   } else {
     potDoDatoteke = 'public' + zahteva.url;
-    console.log("hahaha");
   }
 
   var absolutnaPotDoDatoteke = './' + potDoDatoteke;
