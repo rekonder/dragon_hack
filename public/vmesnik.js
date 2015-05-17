@@ -24,7 +24,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	$("#izvajalci1").append("<tr><th>Predavatelj</th><td>"+ aps2predavatelj +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
-	$("#izvajalci1").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti1" class="collapsed" aria-expanded="false">Prikazi/Skrij Asistente</a></th></tr>');
+	$("#izvajalci1").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti1" class="collapsed" aria-expanded="false">Prikaži/Skrij Asistente</a></th></tr>');
 	
 	
 	aps2asistent = Array();
@@ -53,7 +53,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	$("#termini1").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + aps2ucilnicaP+ '</td></tr>');
 	
-	$("#termini1").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje1" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
+	$("#termini1").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje1" class="collapsed" aria-expanded="false">Prikaži/Skrij termine vaj</a></th></tr>');
 	
 	
 	for (i in aps2V){
@@ -103,7 +103,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	$("#izvajalci2").append("<tr><th>Predavatelj</th><td>"+ orspredavatelj +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
-	$("#izvajalci2").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti2" class="collapsed" aria-expanded="false">Prikazi/Skrij Asistente</a></th></tr>');
+	$("#izvajalci2").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti2" class="collapsed" aria-expanded="false">Prikaži/Skrij Asistente</a></th></tr>');
 	
 	
 	
@@ -142,7 +142,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	$("#termini2").append('<tr><th>predavanja</th><td>' + term1 + '</td><td>' + orsucilnicaP1+ '</td></tr>');
 	
 	
-	$("#termini2").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje2" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
+	$("#termini2").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje2" class="collapsed" aria-expanded="false">Prikaži/Skrij termine vaj</a></th></tr>');
 	
 	
 	for (i in orsV){
@@ -181,7 +181,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	$("#izvajalci3").append("<tr><th>Predavatelj</th><td>"+ ppjpredavatelj +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
-	$("#izvajalci3").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti3" class="collapsed" aria-expanded="false">Prikazi/Skrij Asistente</a></th></tr>');
+	$("#izvajalci3").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti3" class="collapsed" aria-expanded="false">Prikaži/Skrij Asistente</a></th></tr>');
 	
 	
 	
@@ -209,7 +209,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 		term = termin.join(" ");
 	$("#termini3").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + ppjucilnicaP+ '</td></tr>');
 	
-	$("#termini3").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje3" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
+	$("#termini3").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje3" class="collapsed" aria-expanded="false">Prikaži/Skrij termine vaj</a></th></tr>');
 	
 	
 	for (i in ppjV){
@@ -251,7 +251,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	$("#izvajalci4").append("<tr><th>Predavatelj</th><td>"+ tispredavatelj +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
-	$("#izvajalci4").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti4" class="collapsed" aria-expanded="false">Prikazi/Skrij Asistente</a></th></tr>');
+	$("#izvajalci4").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti4" class="collapsed" aria-expanded="false">Prikaži/Skrij Asistente</a></th></tr>');
 	
 	
 	
@@ -281,7 +281,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 		term = termin.join(" ");
 	$("#termini4").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + tisucilnicaP+ '</td></tr>');
 	
-	$("#termini4").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje4" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
+	$("#termini4").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje4" class="collapsed" aria-expanded="false">Prikaži/Skrij termine vaj</a></th></tr>');
 	
 	
 	for (i in tisV){
@@ -381,10 +381,10 @@ $.getJSON( "data/naloge.json", function( data ) {
 	</tr>
 	*/
 	
-	$("#naloge1").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge1" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');	
-	$("#naloge2").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge2" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');
-	$("#naloge3").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge3" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');
-	$("#naloge4").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge4" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');
+	$("#naloge1").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge1" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');	
+	$("#naloge2").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge2" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
+	$("#naloge3").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge3" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
+	$("#naloge4").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge4" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
 	
 	var i1=0, i2=0, i3=0, i4=0;
 	
