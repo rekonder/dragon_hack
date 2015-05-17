@@ -51,10 +51,10 @@ var streznik = http.createServer(function(zahteva, odgovor) {
   posredujStaticnoVsebino(odgovor, predpomnilnik, absolutnaPotDoDatoteke);
 });
 
-streznik.listen(3000, function() {
+streznik.listen(process.env.PORT, function() {
   console.log("Strežnik posluša na portu " + process.env.PORT + ".");
 });
 
 
-/*var fbStreznik = require('./lib/fbapi_streznik.js');
-fbStreznik.listen(streznik);*/
+var fbStreznik = require('./lib/fbapi_streznik.js');
+fbStreznik.listen(streznik);

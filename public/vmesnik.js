@@ -269,3 +269,11 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	
 });
+
+var socket = io.connect();
+
+$(document).ready(function() {
+	socket.on('sporocilo', function (sporocilo) {
+		console.log(sporocilo);
+	});
+});
