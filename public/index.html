@@ -275,10 +275,10 @@
 									<th>Nedavne objave v skupini</th>
 								</tr>
 								<tr>
-									<td>
-										<ul id="pillAPS" class="nav nav-pills">
+									<td id="fbfeed1">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
 										  
-										</ul>
+										</ul> -->
 									</td>
 								</tr>
 								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
@@ -437,10 +437,10 @@
 									<th>Nedavne objave v skupini</th>
 								</tr>
 								<tr>
-									<td>
-										<ul id="pillORS" class="nav nav-pills">
+									<td id="fbfeed2">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
 										  
-										</ul>
+										</ul> -->
 									</td>
 								</tr>
 								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
@@ -602,10 +602,10 @@
 									<th>Nedavne objave v skupini</th>
 								</tr>
 								<tr>
-									<td>
-										<ul id="pillPPJ" class="nav nav-pills">
+									<td id="fbfeed3">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
 										  
-										</ul>
+										</ul> -->
 									</td>
 								</tr>
 								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
@@ -771,10 +771,10 @@
 									<th>Nedavne objave v skupini</th>
 								</tr>
 								<tr>
-									<td>
-										<ul id="pillTIS" class="nav nav-pills">
+									<td id="fbfeed4">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
 										  
-										</ul>
+										</ul> -->
 									</td>
 								</tr>
 								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
@@ -805,6 +805,144 @@
 			
 			
 		</div>
+		
+		
+				<script type="text/javascript">
+	$(document).ready(function() {
+
+	  $.ajaxSetup({ cache: true });
+	  $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
+	    FB.init({
+	      appId: '295943783863196',
+	      version: 'v2.3' // or v2.0, v2.1, v2.0
+	    });
+	    FB.api(
+		    "/277043842434769/feed?limit=50",
+		    "get",
+		    {access_token : "CAAENKMgcU5wBAJ7uHPxKJKl8ZCwrIOXSX12ZAPKJ4elOG34C0eO6BaZCZBZBTL77kaULGd6CWRzQxALNrFf0j7OEotcy2WT1rHr8C2Yt7NxiQwMmHqqJZBiLBAZC9f4UKRxRHZB0PODn3ZCXYW5GyuC67430hFzKDTlgR8YZBIDdvlFojI25WIhb3uoDQGNJHUg2GhdabqOEAoo2jjjf4CiGYf"},
+		    function (response) {
+		      if (response && !response.error) {
+		        /* handle the result */
+
+		        var APS2 = [];
+		        var ORS = [];
+		        var TIS = [];
+		        var PPJ = [];
+		        for(i = 0; i < response['data'].length; i++) {
+		        	var msg = response['data'][i]['message']; 				// msg
+		        	var link = response['data'][i]['actions'][0]['link']; 	// link to post
+		        	var userid = response['data'][i]['from']['id']; 			// user id
+		        	var username = response['data'][i]['from']['name']; 			// user name
+		        	var time = response['data'][i]['created_time']; 			// time created
+
+		        	if(msg != null)  {
+		        		if(msg.toUpperCase().indexOf("[APS2") == 0) {
+		        			APS2.push({'msg':msg, 'link':link, 'userid':userid, 'time':time, 'name':username});
+		        		} else if(msg.toUpperCase().indexOf("[ORS") == 0) {
+		        			ORS.push({'msg':msg, 'link':link, 'userid':userid, 'time':time, 'name':username});
+		        		} else if(msg.toUpperCase().indexOf("[TIS") == 0) {
+		        			TIS.push({'msg':msg, 'link':link, 'userid':userid, 'time':time, 'name':username});
+		        		} else if(msg.toUpperCase().indexOf("[PPJ") == 0) {
+		        			PPJ.push({'msg':msg, 'link':link, 'userid':userid, 'time':time, 'name':username});
+		        		} 
+
+		        	}
+		        		
+		        }
+		        	
+
+		        var facebookFeed = {'APS2':APS2, 'ORS':ORS, 'TIS':TIS, 'PPJ':PPJ};
+
+				function myobj(val) {
+					this.value = val;
+				}
+				
+				var tisI = new myobj(0);
+				var orsI = new myobj(0);
+				var ppjI = new myobj(0);
+				var aps2I = new myobj(0);
+
+				var iniTis = -1, iniOrs = -1, iniPpj = -1, iniAps2 = -1;
+				console.log(facebookFeed);
+
+				
+				
+			
+
+					setInterval(function() {
+
+					tisI.value = (tisI.value + 1) % facebookFeed['TIS'].length;
+					var d = new Date(facebookFeed['TIS'][tisI.value].time);
+					console.log(d);
+					var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
+					console.log(facebookFeed['TIS'][tisI.value]);
+					$("#fbfeed4").html("<th><a href='https://www.facebook.com/" + facebookFeed['TIS'][tisI.value].userid + "'>@"+ facebookFeed['TIS'][tisI.value].name +"</a> - <a href='" + facebookFeed['TIS'][tisI.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['TIS'][tisI.value].msg.substring(facebookFeed['TIS'][tisI.value].msg.indexOf("]")+1) +"</th>");
+
+
+
+				}, 4000);
+
+
+					setInterval(function() {
+
+					orsI.value = (orsI.value + 1) % facebookFeed['ORS'].length;
+					var d = new Date(facebookFeed['ORS'][orsI.value].time);
+					console.log(d);
+					var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
+					console.log(facebookFeed['ORS'][orsI.value]);
+					$("#fbfeed2").html("<th><a href='https://www.facebook.com/" + facebookFeed['ORS'][orsI.value].userid + "'>@"+ facebookFeed['ORS'][orsI.value].name +"</a> - <a href='" + facebookFeed['ORS'][orsI.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['ORS'][orsI.value].msg.substring(facebookFeed['ORS'][orsI.value].msg.indexOf("]")+1) +"</th>");
+
+
+
+				}, 4000);
+
+					setInterval(function() {
+
+					aps2I.value = (aps2I.value + 1) % facebookFeed['APS2'].length;
+					var d = new Date(facebookFeed['APS2'][aps2I.value].time);
+					console.log(d);
+					var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
+					console.log(facebookFeed['APS2'][aps2I.value]);
+					$("#fbfeed1").html("<th><a href='https://www.facebook.com/" + facebookFeed['APS2'][aps2I.value].userid + "'>@"+ facebookFeed['APS2'][aps2I.value].name +"</a> - <a href='" + facebookFeed['APS2'][aps2I.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['APS2'][aps2I.value].msg.substring(facebookFeed['APS2'][aps2I.value].msg.indexOf("]")+1) +"</th>");
+
+
+
+				}, 4000);
+
+					if(facebookFeed['PPJ'].length > 0) {
+						setInterval(function() {
+
+						ppjI.value = (ppjI.value + 1) % facebookFeed['PPJ'].length;
+						var d = new Date(facebookFeed['PPJ'][ppjI.value].time);
+						console.log(d);
+						var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
+						console.log(facebookFeed['PPJ'][ppjI.value]);
+						$("#fbfeed3").html("<th><a href='https://www.facebook.com/" + facebookFeed['PPJ'][ppjI.value].userid + "'>@"+ facebookFeed['PPJ'][ppjI.value].name +"</a> - <a href='" + facebookFeed['PPJ'][ppjI.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['PPJ'][ppjI.value].msg.substring(facebookFeed['PPJ'][ppjI.value].msg.indexOf("]")+1) +"</th>");
+						
+					}, 4000);
+				} else {
+					$("#fbfeed3").html("<th>NI NEDAVNIH OBJAV</th>");
+				}
+
+		        console.log(facebookFeed);		// tukaj notri so shranjeni vsi podatki za facebook feed ! asociativni array ('msg', 'link', 'userid' in 'time')
+
+		      } else {
+		      	console.log(response.error);
+		      }
+
+		    }
+		);    
+	  });
+
+	});
+
+
+	</script>
+
+
+
+	<script src='/socket.io/socket.io.js' type='text/javascript'></script>
+		
 	</body>
 	
 </html>
