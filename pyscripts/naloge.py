@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 __author__ = 'Tine'
 
 import requests
