@@ -46,13 +46,22 @@ $.getJSON( "data/urnik.json", function( data ) {
 		<td>kje</td>
 	</tr>
 */
-	$("#termini1").append('<tr><th>predavanja</th><td>' + aps2terminP + '</td><td>' + aps2ucilnicaP+ '</td></tr>');
+	
+	var termin = aps2terminP.split(" ");
+	termin[0] = termin[0].substring(0,3)+",";
+	term = termin.join(" ");
+	
+	$("#termini1").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + aps2ucilnicaP+ '</td></tr>');
 	
 	$("#termini1").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje1" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
 	
 	
 	for (i in aps2V){
-		$("#termini1").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;"><th>'+ aps2V[i].asistent+'</th><td>' + aps2V[i].termin + '</td><td>' +  aps2V[i].ucilnica + '</td></tr>' );
+		var termin = aps2V[i].termin.split(" ");
+		console.log(termin)
+		termin[0] = termin[0].substring(0,3)+",";
+		term = termin.join(" ");
+		$("#termini1").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;"><th>'+ aps2V[i].asistent+'</th><td>' + term + '</td><td>' +  aps2V[i].ucilnica + '</td></tr>' );
 	}
 	
 	/* ---------- APS2 ---------- */
@@ -117,15 +126,31 @@ $.getJSON( "data/urnik.json", function( data ) {
 		<td>kje</td>
 	</tr>
 */
-	$("#termini2").append('<tr><th>predavanja</th><td>' + orsterminP0 + '</td><td>' + orsucilnicaP0+ '</td></tr>');
-	$("#termini2").append('<tr><th>predavanja</th><td>' + orsterminP1 + '</td><td>' + orsucilnicaP1+ '</td></tr>');
+
+	var terminP0 = orsterminP0.split(" ");
+	console.log(terminP0)
+	terminP0[0] = terminP0[0].substring(0,3)+",";
+	term0 = terminP0.join(" ");
+	
+	var terminP1 = orsterminP1.split(" ");
+	console.log(terminP1)
+	terminP1[0] = terminP1[0].substring(0,3)+",";
+	term1 = terminP1.join(" ");
+	
+	
+	$("#termini2").append('<tr><th>predavanja</th><td>' + term0 + '</td><td>' + orsucilnicaP0+ '</td></tr>');
+	$("#termini2").append('<tr><th>predavanja</th><td>' + term1 + '</td><td>' + orsucilnicaP1+ '</td></tr>');
 	
 	
 	$("#termini2").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje2" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
 	
 	
 	for (i in orsV){
-		$("#termini2").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje2" aria-expanded="false" style="height: 0px;"><th>'+ orsV[i].asistent+'</th><td>' + orsV[i].termin + '</td><td>' +  orsV[i].ucilnica + '</td></tr>' );
+		var termin = orsV[i].termin.split(" ");
+		console.log(termin)
+		termin[0] = termin[0].substring(0,3)+",";
+		term = termin.join(" ");
+		$("#termini2").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje2" aria-expanded="false" style="height: 0px;"><th>'+ orsV[i].asistent+'</th><td>' + term + '</td><td>' +  orsV[i].ucilnica + '</td></tr>' );
 	}
 	
 	/* ---------- ORS ---------- */
@@ -178,14 +203,21 @@ $.getJSON( "data/urnik.json", function( data ) {
 		<td>dan, ura ...</td>
 		<td>kje</td>
 	</tr>
-*/
-	$("#termini3").append('<tr><th>predavanja</th><td>' + ppjterminP + '</td><td>' + ppjucilnicaP+ '</td></tr>');
+*/	var terminP = ppjterminP.split(" ");
+		console.log(terminP)
+		terminP[0] = terminP[0].substring(0,3)+",";
+		term = termin.join(" ");
+	$("#termini3").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + ppjucilnicaP+ '</td></tr>');
 	
 	$("#termini3").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje3" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
 	
 	
 	for (i in ppjV){
-		$("#termini3").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje3" aria-expanded="false" style="height: 0px;"><th>'+ ppjV[i].asistent+'</th><td>' + ppjV[i].termin + '</td><td>' +  ppjV[i].ucilnica + '</td></tr>' );
+		var termin = ppjV[i].termin.split(" ");
+		console.log(termin)
+		termin[0] = termin[0].substring(0,3)+",";
+		term = termin.join(" ");
+		$("#termini3").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje3" aria-expanded="false" style="height: 0px;"><th>'+ ppjV[i].asistent+'</th><td>' + term + '</td><td>' +  ppjV[i].ucilnica + '</td></tr>' );
 	}
 	
 	/* ---------- PPJ ---------- */
@@ -242,13 +274,22 @@ $.getJSON( "data/urnik.json", function( data ) {
 		<td>kje</td>
 	</tr>
 */
-	$("#termini4").append('<tr><th>predavanja</th><td>' + tisterminP + '</td><td>' + tisucilnicaP+ '</td></tr>');
+
+	var terminP = tisterminP.split(" ");
+		console.log(terminP)
+		terminP[0] = terminP[0].substring(0,3)+",";
+		term = termin.join(" ");
+	$("#termini4").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + tisucilnicaP+ '</td></tr>');
 	
 	$("#termini4").append('<tr><th colspan="4"><a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje4" class="collapsed" aria-expanded="false">Prikazi/Skrij vaje</a></th></tr>');
 	
 	
 	for (i in tisV){
-		$("#termini4").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje4" aria-expanded="false" style="height: 0px;"><th>'+ tisV[i].asistent+'</th><td>' + tisV[i].termin + '</td><td>' +  tisV[i].ucilnica + '</td></tr>' );
+		var termin = tisV[i].termin.split(" ");
+		console.log(termin)
+		termin[0] = termin[0].substring(0,3)+",";
+		term = termin.join(" ");
+		$("#termini4").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje4" aria-expanded="false" style="height: 0px;"><th>'+ tisV[i].asistent+'</th><td>' + term + '</td><td>' +  tisV[i].ucilnica + '</td></tr>' );
 	}
 	
 	/* ---------- TIS ---------- */
@@ -344,32 +385,98 @@ $.getJSON( "data/naloge.json", function( data ) {
 	$("#naloge2").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge2" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');
 	$("#naloge3").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge3" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');
 	$("#naloge4").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge4" class="collapsed" aria-expanded="false">Prikazi/Skrij Naloge</a></th></tr>');
-
-	$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-
 	
-
+	var i1=0, i2=0, i3=0, i4=0;
+	
 	
 	for (i in kvizi){
 		if(kvizi[i].name == "APS2"){
-			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i1++;
 		}
 		else if(kvizi[i].name == "ORS"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i2++;
 		}
 		else if(kvizi[i].name == "PPJ"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i3++;
 		}
 		else if(kvizi[i].name == "TIS"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i4++;
 		}
 	}
 	
 	for (i in naloge){
 		if(naloge[i].name == "APS2"){
+			i1++;
+		}
+		
+		else if(naloge[i].name == "ORS"){
+			i2++;
+		}
+		
+		else if(naloge[i].name == "PPJ"){
+			i3++;
+		}
+		
+		else if(naloge[i].name == "TIS"){
+			i4++;
+		}
+	}
+	
+	
+	
+	if(i1>0){
+		$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
+	}
+	else{
+		$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
+	}
+
+	if(i2>0){
+		$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
+	}
+	else{
+		$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
+	}
+	
+	
+	if(i3>0){
+		$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
+	}
+	else{
+		$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
+	}
+
+	if(i4>0){
+		$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
+	}
+	else{
+		$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
+	}
+	
+	
+	
+	for (i in kvizi){
+		if(kvizi[i].name == "APS2"){
+			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i1++;
+		}
+		else if(kvizi[i].name == "ORS"){
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i2++;
+		}
+		else if(kvizi[i].name == "PPJ"){
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i3++;
+		}
+		else if(kvizi[i].name == "TIS"){
+			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td>' + kvizi[i].rok + '</td><td></td></tr>');
+			i4++;
+		}
+	}
+	
+	for (i in naloge){
+		if(naloge[i].name == "APS2"){
+			i1++;
 			//kvizi[i].rok
 			if(naloge[i].oddano=="da"){
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
@@ -381,6 +488,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 		}
 		
 		else if(naloge[i].name == "ORS"){
+			i2++;
 			//kvizi[i].rok
 			if(naloge[i].oddano=="da"){
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
@@ -392,6 +500,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 		}
 		
 		else if(naloge[i].name == "PPJ"){
+			i3++;
 			//kvizi[i].rok
 			if(naloge[i].oddano=="da"){
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
@@ -403,6 +512,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 		}
 		
 		else if(naloge[i].name == "TIS"){
+			i4++;
 			//kvizi[i].rok
 			if(naloge[i].oddano=="da"){
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
@@ -413,8 +523,6 @@ $.getJSON( "data/naloge.json", function( data ) {
 			$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td>' + naloge[i].rok + '</td><td>'+s+'</td></tr>');
 		}
 	}
-	
-	
 	
 });
 
