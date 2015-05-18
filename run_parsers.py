@@ -17,7 +17,9 @@ class bcolors:
         print(color + msg + bcolors.ENDC, end=end_line)
 
 def main(user, password):
-    pass
+    print("Running timetable scraping... ", end='')
+    result = urnik.main()
+
 
 if __name__ == '__main__':
     main(sys.argv[1], sys.argv[2])
