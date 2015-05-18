@@ -17,9 +17,9 @@ $.getJSON( "data/urnik.json", function( data ) {
 	brezsum = brezsum.replace("ć", "c");
 	
 	
-	splited=brezsum.split(", ");
+	splitted=brezsum.split(", ");
 	
-	wbpage="http://www.fri.uni-lj.si/"+splited[1]+"-"+splited[0];
+	wbpage="http://www.fri.uni-lj.si/"+splitted[1]+"-"+splitted[0];
 	
 	aps2terminP = aps2P.termin;
 	
@@ -33,22 +33,14 @@ $.getJSON( "data/urnik.json", function( data ) {
 	aps2asistent = Array();
 	var idx = 0
 	for (i in aps2V){ 
-		
-		//console.log(aps2asistent.indexOf(aps2V[i].asistent) + aps2V[i].asistent);
+
 		if(aps2asistent.indexOf(aps2V[i].asistent)<0){
 			aps2asistent[idx] = aps2V[i].asistent;
 			idx++;
 			$("#izvajalci1").append('<tr id="as2" class="panel-collapse collapse collapseAsistenti1" aria-expanded="false" style="height: 0px;"><th>Asistent</th><td>'+ aps2asistent[idx-1] +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 		}
-
 	}
-/*
-	<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;">
-		<th>vaje</th>
-		<td>dan, ura ...</td>
-		<td>kje</td>
-	</tr>
-*/
+
 	
 	var termin = aps2terminP.split(" ");
 	termin[0] = termin[0].substring(0,3)+",";
@@ -102,9 +94,9 @@ $.getJSON( "data/urnik.json", function( data ) {
 	brezsum = brezsum.replace("ć", "c");
 	
 	
-	splited=brezsum.split(", ");
+	splitted=brezsum.split(", ");
 	
-	wbpage="http://www.fri.uni-lj.si/"+splited[1]+"-"+splited[0];
+	wbpage="http://www.fri.uni-lj.si/"+splitted[1]+"-"+splitted[0];
 	
 	$("#izvajalci2").append('<tr><th>Predavatelj</th><td><a href="' + wbpage + '">'+ orspredavatelj +'</a></td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
@@ -116,7 +108,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	var idx = 0
 	for (i in orsV){ 
 		
-		//console.log(aps2asistent.indexOf(aps2V[i].asistent) + aps2V[i].asistent);
+
 		if(orsasistent.indexOf(orsV[i].asistent)<0){
 			orsasistent[idx] = orsV[i].asistent;
 			idx++;
@@ -124,13 +116,6 @@ $.getJSON( "data/urnik.json", function( data ) {
 		}
 
 	}
-/*
-	<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;">
-		<th>vaje</th>
-		<td>dan, ura ...</td>
-		<td>kje</td>
-	</tr>
-*/
 
 	var terminP0 = orsterminP0.split(" ");
 	console.log(terminP0)
@@ -182,9 +167,9 @@ $.getJSON( "data/urnik.json", function( data ) {
 	brezsum = brezsum.replace("ć", "c");
 	
 	
-	splited=brezsum.split(", ");
+	splitted=brezsum.split(", ");
 	
-	wbpage="http://www.fri.uni-lj.si/"+splited[1]+"-"+splited[0];
+	wbpage="http://www.fri.uni-lj.si/"+splitted[1]+"-"+splitted[0];
 	
 	$("#izvajalci3").append('<tr><th>Predavatelj</th><td><a href="' + wbpage + '">'+ ppjpredavatelj +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
@@ -204,13 +189,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 		}
 
 	}
-/*
-	<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;">
-		<th>vaje</th>
-		<td>dan, ura ...</td>
-		<td>kje</td>
-	</tr>
-*/	var terminP = ppjterminP.split(" ");
+	var terminP = ppjterminP.split(" ");
 		console.log(terminP)
 		terminP[0] = terminP[0].substring(0,3)+",";
 		term = termin.join(" ");
@@ -229,13 +208,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	/* ---------- PPJ ---------- */
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	/* ---------- TIS ---------- */
 	
@@ -254,9 +227,9 @@ $.getJSON( "data/urnik.json", function( data ) {
 	brezsum = brezsum.replace("ć", "c");
 	
 	
-	splited=brezsum.split(", ");
+	splitted=brezsum.split(", ");
 	
-	wbpage="http://www.fri.uni-lj.si/"+splited[1]+"-"+splited[0];
+	wbpage="http://www.fri.uni-lj.si/"+splitted[1]+"-"+splitted[0];
 	
 	$("#izvajalci4").append('<tr><th>Predavatelj</th><td><a href="' + wbpage + '">'+ tispredavatelj +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
 	
@@ -276,14 +249,6 @@ $.getJSON( "data/urnik.json", function( data ) {
 		}
 
 	}
-/*
-	<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;">
-		<th>vaje</th>
-		<td>dan, ura ...</td>
-		<td>kje</td>
-	</tr>
-*/
-
 	var terminP = tisterminP.split(" ");
 		console.log(terminP)
 		terminP[0] = terminP[0].substring(0,3)+",";
@@ -301,24 +266,8 @@ $.getJSON( "data/urnik.json", function( data ) {
 		$("#termini4").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje4" aria-expanded="false" style="height: 0px;"><th>'+ tisV[i].asistent+'</th><td>' + term + '</td><td>' +  tisV[i].ucilnica + '</td></tr>' );
 	}
 	
-	/* ---------- TIS ---------- */
-	
-	
-	/*
-	console.log(aps2P);
-	//console.log(orsP);
-	console.log(orsP0);
-	console.log(orsP1);
-	console.log(ppjP);
-	console.log(tisP);
-	*/
-	
-	
-	
-	
-	
-	
 });
+/* ---------- TIS ---------- */
 
 $.getJSON( "data/studis.json", function( data ) {
 	//console.log(data);
@@ -378,89 +327,59 @@ $.getJSON( "data/naloge.json", function( data ) {
 	
 	kvizi = data.kvizi;
 	naloge = data.naloge;
-	
-	
-/*	
-	<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;">
-		<td>Naloga1</td>
-		<td>1. junij, 23:59</td>
-		<td>
-			<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
-		</td>
-	</tr>
-	*/
-	
-	$("#naloge1").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge1" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');	
-	$("#naloge2").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge2" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
-	$("#naloge3").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge3" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
-	$("#naloge4").append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge4" class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
-	
+
+
+	for (i = 1; i <=5; i++) {
+    	$("#naloge" + i).append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge' + i + 'class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
+	}
+
 	var i1=0, i2=0, i3=0, i4=0;
-	
-	
+
 	for (i in kvizi){
-		if(kvizi[i].name == "APS2"){
+		if(kvizi[i].name == "APS2")
 			i1++;
-		}
-		else if(kvizi[i].name == "ORS"){
+		else if(kvizi[i].name == "ORS")
 			i2++;
-		}
 		else if(kvizi[i].name == "PPJ"){
 			i3++;
-		}
-		else if(kvizi[i].name == "TIS"){
+		else if(kvizi[i].name == "TIS")
 			i4++;
-		}
+
 	}
 	
 	for (i in naloge){
-		if(naloge[i].name == "APS2"){
+		if(naloge[i].name == "APS2")
 			i1++;
-		}
-		
-		else if(naloge[i].name == "ORS"){
+		else if(naloge[i].name == "ORS")
 			i2++;
-		}
-		
-		else if(naloge[i].name == "PPJ"){
+		else if(naloge[i].name == "PPJ")
 			i3++;
-		}
-		
-		else if(naloge[i].name == "TIS"){
+		else if(naloge[i].name == "TIS")
 			i4++;
-		}
 	}
 	
 	
 	
-	if(i1>0){
-		$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	}
-	else{
-		$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
-	}
+	if(i1>0)
+		$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');
+	else
+		$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');
 
-	if(i2>0){
-		$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	}
-	else{
+	if(i2>0)
+		$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');
+	else
 		$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
-	}
-	
-	
-	if(i3>0){
-		$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	}
-	else{
-		$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
-	}
 
-	if(i4>0){
-		$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');	
-	}
-	else{
-		$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');	
-	}
+
+	if(i3>0)
+		$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');
+	else
+		$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');
+
+	if(i4>0)
+		$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th>Dolznost</th><th>Rok</th><th>Opravljeno</th></tr>');
+	else
+		$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><th colspan="3">Ni nalog ali kvizov.</th></tr>');
 	
 	
 	
@@ -487,54 +406,46 @@ $.getJSON( "data/naloge.json", function( data ) {
 		if(naloge[i].name == "APS2"){
 			i1++;
 			//kvizi[i].rok
-			if(naloge[i].oddano=="da"){
+			if(naloge[i].oddano=="da")
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
-			}
-			else{
+			else
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
-			}
 			$("#naloge1").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 		
 		else if(naloge[i].name == "ORS"){
 			i2++;
 			//kvizi[i].rok
-			if(naloge[i].oddano=="da"){
+			if(naloge[i].oddano=="da")
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
-			}
-			else{
+			else
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
-			}
 			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 		
 		else if(naloge[i].name == "PPJ"){
 			i3++;
 			//kvizi[i].rok
-			if(naloge[i].oddano=="da"){
+			if(naloge[i].oddano=="da")
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
-			}
-			else{
+			else
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
-			}
+
 			$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 		
 		else if(naloge[i].name == "TIS"){
 			i4++;
 			//kvizi[i].rok
-			if(naloge[i].oddano=="da"){
+			if(naloge[i].oddano=="da")
 				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
-			}
-			else{
+			else
 				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
-			}
 			$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Naloga</td><td><a href=\'' + naloge[i].link +  '\'>'+naloge[i].rok+'</a></td><td>'+s+'</td></tr>');
 		}
 	}
 	
 });
-
 
 
 var socket = io.connect();
