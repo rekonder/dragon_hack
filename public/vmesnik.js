@@ -329,7 +329,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 	naloge = data.naloge;
 
 
-	for (i = 1; i <=5; i++) {
+	for (i = 1; i <=4; i++) {
     	$("#naloge" + i).append('<tr><th colspan="3"><a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge' + i + 'class="collapsed" aria-expanded="false">Prikaži/Skrij Naloge</a></th></tr>');
 	}
 
