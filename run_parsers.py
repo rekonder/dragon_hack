@@ -1,7 +1,7 @@
 __author__ = 'MikroMan'
 
 import sys
-from fri_scrapers import urnik
+from fri_scrapers import urnik, studis
 
 class bcolors:
     HEADER = '\033[95m'
@@ -18,6 +18,7 @@ class bcolors:
 
 def main(user, password):
     result = urnik.main()
+    result = studis.main()
 
 
 if __name__ == '__main__':
