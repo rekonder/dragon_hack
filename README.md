@@ -27,4 +27,3 @@ Developed by:
  * *MikroMan* (backend & data scraping), 
  * *rekonder* (backend, server, frontend support),
  * *ziga.cernigoj* (frontend JavaScript & webpage design)
- 
