@@ -4,9 +4,7 @@ from bs4 import BeautifulSoup
 import json
 
 filename = "..\pyresources\studis.html"
-myfile = open(filename,encoding="utf-8")
-unicode_html = myfile.read()
-soup = BeautifulSoup(unicode_html)
+
 
 
 
@@ -53,11 +51,21 @@ def getCourseData(soup):
             predmeti["ORS"]["dates"] += examDate + ","
     return predmeti
 
-student = getStudentData(soup)
-predmeti = getCourseData(soup)
-file = open("../pyresources/studis.json","w",encoding="utf-8")
-json.dump({"student": student, "predmeti": predmeti}, file,ensure_ascii=False)
-file.close()
+def main():
+    myfile = open(filename,encoding="utf-8")
+    unicode_html = myfile.read()
+    soup = BeautifulSoup(unicode_html)
+
+    student = getStudentData(soup)
+    predmeti = getCourseData(soup)
+    file = open("../pyresources/studis.json","w",encoding="utf-8")
+    json.dump({"student": student, "predmeti": predmeti}, file,ensure_ascii=False)
+    file.close()
+
+
+if __name__ == '__main__':
+    main()
+
 
 
 

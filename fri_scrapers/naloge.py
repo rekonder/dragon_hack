@@ -36,6 +36,7 @@ def parseNaloga(span, cookie):
     soup = BeautifulSoup(html.text)
     course = soup.find_all('div', 'homelink')[0].contents[0].contents[0]
     course = course.upper()
+
     if len(course) > 3:
         course = course[0:4]
 
