@@ -428,11 +428,11 @@ $.getJSON( "data/naloge.json", function( data ) {
 			i2++;
 		}
 		else if(kvizi[i].name == "PPJ"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
+			$("#naloge3").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
 			i3++;
 		}
 		else if(kvizi[i].name == "TIS"){
-			$("#naloge2").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
+			$("#naloge4").append('<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;"><td>Kviz</td><td><a href=\'' + kvizi[i].link +  '\'>'+kvizi[i].rok+'</a></td><td></td></tr>');
 			i4++;
 		}
 	}
