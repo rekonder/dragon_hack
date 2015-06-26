@@ -74,7 +74,7 @@
 		</style>
 
 	</head>
-	<body>
+	<body> <!-- onload="checkCookie()" -->
 		<div class="container-float">
 			
 			<!-- meni -->
@@ -102,6 +102,11 @@
 				  </i>
 				  <ul class="nav navbar-nav navbar-right">
 					<!--<li><a href="https://github.com/MikroMan/dragon_hack">GitHub</a></li>-->
+					
+					<li id="dolociPredmete">
+						<a href="javascript:spremeniPredmete()">Določi predmete</a>
+					</li>
+
 					<li id="dropmeni" class="dropdown">
 					  <a class="dropdown-toggle" data-toggle="dropdown" href="">Meni <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
@@ -863,7 +868,7 @@
 				var aps2I = new myobj(0);
 
 				var iniTis = -1, iniOrs = -1, iniPpj = -1, iniAps2 = -1;
-				console.log(facebookFeed);
+				//console.log(facebookFeed);
 
 				
 				
@@ -873,9 +878,9 @@
 
 					tisI.value = (tisI.value + 1) % facebookFeed['TIS'].length;
 					var d = new Date(facebookFeed['TIS'][tisI.value].time);
-					console.log(d);
+					//console.log(d);
 					var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
-					console.log(facebookFeed['TIS'][tisI.value]);
+					//console.log(facebookFeed['TIS'][tisI.value]);
 					$("#fbfeed4").html("<th><a href='https://www.facebook.com/" + facebookFeed['TIS'][tisI.value].userid + "'>@"+ facebookFeed['TIS'][tisI.value].name +"</a> - <a href='" + facebookFeed['TIS'][tisI.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['TIS'][tisI.value].msg.substring(facebookFeed['TIS'][tisI.value].msg.indexOf("]")+1) +"</th>");
 
 
@@ -887,9 +892,9 @@
 
 					orsI.value = (orsI.value + 1) % facebookFeed['ORS'].length;
 					var d = new Date(facebookFeed['ORS'][orsI.value].time);
-					console.log(d);
+					//console.log(d);
 					var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
-					console.log(facebookFeed['ORS'][orsI.value]);
+					//console.log(facebookFeed['ORS'][orsI.value]);
 					$("#fbfeed2").html("<th><a href='https://www.facebook.com/" + facebookFeed['ORS'][orsI.value].userid + "'>@"+ facebookFeed['ORS'][orsI.value].name +"</a> - <a href='" + facebookFeed['ORS'][orsI.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['ORS'][orsI.value].msg.substring(facebookFeed['ORS'][orsI.value].msg.indexOf("]")+1) +"</th>");
 
 
@@ -900,9 +905,9 @@
 
 					aps2I.value = (aps2I.value + 1) % facebookFeed['APS2'].length;
 					var d = new Date(facebookFeed['APS2'][aps2I.value].time);
-					console.log(d);
+					//console.log(d);
 					var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
-					console.log(facebookFeed['APS2'][aps2I.value]);
+					//console.log(facebookFeed['APS2'][aps2I.value]);
 					$("#fbfeed1").html("<th><a href='https://www.facebook.com/" + facebookFeed['APS2'][aps2I.value].userid + "'>@"+ facebookFeed['APS2'][aps2I.value].name +"</a> - <a href='" + facebookFeed['APS2'][aps2I.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['APS2'][aps2I.value].msg.substring(facebookFeed['APS2'][aps2I.value].msg.indexOf("]")+1) +"</th>");
 
 
@@ -914,9 +919,9 @@
 
 						ppjI.value = (ppjI.value + 1) % facebookFeed['PPJ'].length;
 						var d = new Date(facebookFeed['PPJ'][ppjI.value].time);
-						console.log(d);
+						//console.log(d);
 						var formatedDate = d.getDate() + ". " + (d.getMonth()+1) + ". " +  d.getFullYear();
-						console.log(facebookFeed['PPJ'][ppjI.value]);
+						//console.log(facebookFeed['PPJ'][ppjI.value]);
 						$("#fbfeed3").html("<th><a href='https://www.facebook.com/" + facebookFeed['PPJ'][ppjI.value].userid + "'>@"+ facebookFeed['PPJ'][ppjI.value].name +"</a> - <a href='" + facebookFeed['PPJ'][ppjI.value].link + "'> "+ formatedDate	 +"</a>: "+ facebookFeed['PPJ'][ppjI.value].msg.substring(facebookFeed['PPJ'][ppjI.value].msg.indexOf("]")+1) +"</th>");
 						
 					}, 4000);
@@ -924,10 +929,10 @@
 					$("#fbfeed3").html("<th>NI NEDAVNIH OBJAV</th>");
 				}
 
-		        console.log(facebookFeed);		// tukaj notri so shranjeni vsi podatki za facebook feed ! asociativni array ('msg', 'link', 'userid' in 'time')
+		        //console.log(facebookFeed);		// tukaj notri so shranjeni vsi podatki za facebook feed ! asociativni array ('msg', 'link', 'userid' in 'time')
 
 		      } else {
-		      	console.log(response.error);
+		      	//console.log(response.error);
 		      }
 
 		    }

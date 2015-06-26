@@ -1,3 +1,76 @@
+var userIdGlobal;
+var predmetiGlobal = Array();
+
+function abc(data){
+	var key, i=0;
+	for(key in data.predmeti){
+		//console.log(data.predmeti[key].name);
+		predmetiGlobal[i]=data.predmeti[key].name;
+		i++;
+	}
+	//console.log(predmetiGlobal);
+	userIdGlobal = data.student.number;
+	//console.log(userIdGlobal);
+
+	setCookie("username", userIdGlobal + "," + predmetiGlobal, 30);
+
+
+	var userData = getCookie("username");
+    if (userData != "") {
+    	var ud = userData.split(","); 
+        console.log(ud);
+    }
+
+}
+
+/* ZA KUKIJE */
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+
+    document.cookie = cname + "=" + cvalue + "; " +
+    					expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var userData=getCookie("username");
+    if (userData != "") {
+    	var ud = userData.split(","); 
+        alert("tabela: " + ud);
+    } else {
+       userData = prompt("nothing important","");
+       if (user != "" && user != null) {
+           setCookie("username", user, 30);
+       }
+    }
+}
+/* ZA KUKIJE */
+
+
+
+function spremeniPredmete(){
+	// zaenkrat samo v alertu pokaze vpisno + vse predmete (skupaj v arrayu)
+	checkCookie();
+}
+
+
+
+
+
 $.getJSON( "data/urnik.json", function( data ) {
 	//console.log(data); 
 	
@@ -53,7 +126,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	for (i in aps2V){
 		var termin = aps2V[i].termin.split(" ");
-		console.log(termin)
+		//console.log(termin);
 		termin[0] = termin[0].substring(0,3)+",";
 		term = termin.join(" ");
 		$("#termini1").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;"><th>'+ aps2V[i].asistent+'</th><td>' + term + '</td><td>' +  aps2V[i].ucilnica + '</td></tr>' );
@@ -118,12 +191,12 @@ $.getJSON( "data/urnik.json", function( data ) {
 	}
 
 	var terminP0 = orsterminP0.split(" ");
-	console.log(terminP0)
+	//console.log(terminP0);
 	terminP0[0] = terminP0[0].substring(0,3)+",";
 	term0 = terminP0.join(" ");
 	
 	var terminP1 = orsterminP1.split(" ");
-	console.log(terminP1)
+	//console.log(terminP1);
 	terminP1[0] = terminP1[0].substring(0,3)+",";
 	term1 = terminP1.join(" ");
 	
@@ -137,7 +210,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	for (i in orsV){
 		var termin = orsV[i].termin.split(" ");
-		console.log(termin)
+		//console.log(termin);
 		termin[0] = termin[0].substring(0,3)+",";
 		term = termin.join(" ");
 		$("#termini2").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje2" aria-expanded="false" style="height: 0px;"><th>'+ orsV[i].asistent+'</th><td>' + term + '</td><td>' +  orsV[i].ucilnica + '</td></tr>' );
@@ -190,7 +263,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 
 	}
 	var terminP = ppjterminP.split(" ");
-		console.log(terminP)
+		//console.log(terminP);
 		terminP[0] = terminP[0].substring(0,3)+",";
 		term = termin.join(" ");
 	$("#termini3").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + ppjucilnicaP+ '</td></tr>');
@@ -200,7 +273,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	for (i in ppjV){
 		var termin = ppjV[i].termin.split(" ");
-		console.log(termin)
+		//console.log(termin);
 		termin[0] = termin[0].substring(0,3)+",";
 		term = termin.join(" ");
 		$("#termini3").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje3" aria-expanded="false" style="height: 0px;"><th>'+ ppjV[i].asistent+'</th><td>' + term + '</td><td>' +  ppjV[i].ucilnica + '</td></tr>' );
@@ -250,7 +323,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 
 	}
 	var terminP = tisterminP.split(" ");
-		console.log(terminP)
+		//console.log(terminP);
 		terminP[0] = terminP[0].substring(0,3)+",";
 		term = termin.join(" ");
 	$("#termini4").append('<tr><th>predavanja</th><td>' + term + '</td><td>' + tisucilnicaP+ '</td></tr>');
@@ -260,7 +333,7 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	for (i in tisV){
 		var termin = tisV[i].termin.split(" ");
-		console.log(termin)
+		//console.log(termin);
 		termin[0] = termin[0].substring(0,3)+",";
 		term = termin.join(" ");
 		$("#termini4").append('<tr id="vaje2" class="panel-collapse collapse collapseVaje4" aria-expanded="false" style="height: 0px;"><th>'+ tisV[i].asistent+'</th><td>' + term + '</td><td>' +  tisV[i].ucilnica + '</td></tr>' );
@@ -269,14 +342,17 @@ $.getJSON( "data/urnik.json", function( data ) {
 	/* ---------- TIS ---------- */
 
 
-
-
-
 });
+
+
+
+
 
 $.getJSON( "data/studis.json", function( data ) {
 	//console.log(data);
 	
+	abc(data);
+
 	predmeti = data.predmeti;
 	
 	aps2 = predmeti.APS2;
@@ -328,7 +404,7 @@ $.getJSON( "data/studis.json", function( data ) {
 });
 
 $.getJSON( "data/naloge.json", function( data ) {
-	console.log(data);
+	//console.log(data);
 	
 	kvizi = data.kvizi;
 	naloge = data.naloge;
@@ -491,10 +567,11 @@ $.getJSON( "data/naloge.json", function( data ) {
 
 
 
+/*
 var socket = io.connect();
-
 $(document).ready(function() {
 	socket.on('sporocilo', function (sporocilo) {
 		console.log(sporocilo);
 	});
 });
+*/
