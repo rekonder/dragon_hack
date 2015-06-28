@@ -69,6 +69,82 @@ function spremeniPredmete(){
 
 
 
+/* ---------- ZACETEK ---------- NOV ZA PREDMETE ---------- */
+
+$.getJSON( "data/studis.json", function( data ) {
+	predmeti = data.predmeti;
+	var key;
+	for(key in predmeti){
+		fillPredmet(predmeti, key);
+	}
+});
+
+function fillPredmet(podatki, x){
+	imeP = podatki[x].name;
+	$("#vsi").append("<div id=predmet"+x+">" + imeP + "</br></div>");
+
+	$("#predmet"+x).append("<table border='1px'><tr id=izpiti"+x+">");
+	datumi = podatki[x].dates.split(",");
+	for(i in datumi){
+		$("#izpiti"+x).append('<td>'+ datumi[i] +'</td>');	
+	}
+	//$("#vsi").append("</tr></table>");
+
+	$("#vsi").append("</br></br>");
+
+}
+
+function fillPredavanja(pred, x){
+	var predX = pred[x];
+	//console.log(predX);
+
+	$("#predmet"+x).append("<table id=predavanja"+x+" border='1px'>");
+	
+	var key;
+	for (key in predX){
+		//console.log(predX[key].ucilnica + " " + predX[key].termin + " " + predX[key].predavatelj);
+		$("#predavanja"+x).append("<tr>" + 
+			"<td>" + predX[key].ucilnica + "</td>" + 
+			"<td>" + predX[key].termin + "</td>" + 
+			"<td>" + predX[key].predavatelj + "</td>" + 
+			"</tr>"
+		);
+	}
+}
+
+function fillVaje(vaje, x){
+	var vajeX = vaje[x];
+	//console.log(vajeX);
+
+	$("#predmet"+x).append("<table id=vaje"+x+" border='1px'>");
+	
+	var key;
+	for (key in vajeX){
+		$("#vaje"+x).append("<tr>" + 
+			"<td>" + vajeX[key].ucilnica + "</td>" + 
+			"<td>" + vajeX[key].termin + "</td>" + 
+			"<td>" + vajeX[key].asistent + "</td>" + 
+			"</tr>"
+		);
+	}
+}
+
+$.getJSON( "data/urnik.json", function( data ) {
+	predavanja = data.predavanja;
+	vaje = data.vaje;
+	//console.log(predavanja + " " + vaje );
+
+	var key;
+	for(key in predavanja){
+		fillPredavanja(predavanja, key);
+	}
+	for(key in vaje){
+		fillVaje(vaje, key);
+	}
+});
+
+/* ---------- KONEC ---------- NOV ZA PREDMETE ---------- */
+
 
 
 $.getJSON( "data/urnik.json", function( data ) {
@@ -140,9 +216,9 @@ $.getJSON( "data/urnik.json", function( data ) {
 	
 	/* ---------- ORS ---------- */
 	
-	orsP = predavanja.ORS;
-	orsP0 = orsP[0];
-	orsP1 = orsP[1];
+	//orsP = predavanja.ORS;
+	orsP0 = predavanja.ORS[0];
+	orsP1 = predavanja.ORS[1];
 	
 	orsucilnicaP0 = orsP0.ucilnica;
 	orsucilnicaP1 = orsP1.ucilnica;
@@ -348,13 +424,16 @@ $.getJSON( "data/urnik.json", function( data ) {
 
 
 
+
+
+
+
 $.getJSON( "data/studis.json", function( data ) {
 	//console.log(data);
-	
+
 	abc(data);
 
 	predmeti = data.predmeti;
-	
 	aps2 = predmeti.APS2;
 	ors = predmeti.ORS;
 	ppj = predmeti.PPJ;
@@ -400,8 +479,14 @@ $.getJSON( "data/studis.json", function( data ) {
 	
 	program = student.program;
 	$("#program").append('<a href="">'+ program +'</a>');
-	
 });
+
+
+
+
+
+
+
 
 $.getJSON( "data/naloge.json", function( data ) {
 	//console.log(data);
