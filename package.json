@@ -1,7 +1,7 @@
 {
-    "name": "klepetalnice",
+    "name": "Student.INFO",
     "version": "0.0.1",
-    "description": "Okrnjena različica klepetalnice z več klepeti",
+    "description": "FRI Student data aggregator",
     "dependencies": {
         "socket.io": "~1.3.5",
         "mime": "~1.3.4"
