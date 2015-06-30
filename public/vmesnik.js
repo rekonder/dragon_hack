@@ -1,5 +1,6 @@
 var userIdGlobal;
 var predmetiGlobal = Array();
+var kraticeGlobal = Array();
 
 function abc(data){
 	var key, i=0;
@@ -73,61 +74,35 @@ function spremeniPredmete(){
 
 $.getJSON( "data/studis.json", function( data ) {
 	predmeti = data.predmeti;
-	var key;
+	var key, i=0;
 	for(key in predmeti){
+		kraticeGlobal[i]=key;
 		fillPredmet(predmeti, key);
+		i++;
 	}
 });
 
 function fillPredmet(podatki, x){
 	imeP = podatki[x].name;
-	$("#vsi").append("<div id=predmet"+x+">" + imeP + "</br></div>");
 
-	$("#predmet"+x).append("<table border='1px'><tr id=izpiti"+x+">");
+	$("#vsi").append('<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12"> <div class="panel panel-default" id="inner'+x+'">');
+	$("#inner"+x).append("<div id='predmet"+x+"' class='panel-heading'>" + imeP + "</div>");
+	$("#inner"+x).append("<div id='panbody"+x+"' class='panel-body'>");
+
+	$("#panbody"+x).append('<div class="panel panel-default"> <div class="panel-heading">Izpiti</div> <div id="izpbody'+x+'" class="panel-body">');
+
+	$("#izpbody"+x).append("<table class='table table-hover'> <tr id='stev"+x+"'> <tr id='izpiti"+x+"'> ");
 	datumi = podatki[x].dates.split(",");
+	var j=1;
 	for(i in datumi){
-		$("#izpiti"+x).append('<td>'+ datumi[i] +'</td>');	
-	}
-	//$("#vsi").append("</tr></table>");
-
-	$("#vsi").append("</br></br>");
-
-}
-
-function fillPredavanja(pred, x){
-	var predX = pred[x];
-	//console.log(predX);
-
-	$("#predmet"+x).append("<table id=predavanja"+x+" border='1px'>");
-	
-	var key;
-	for (key in predX){
-		//console.log(predX[key].ucilnica + " " + predX[key].termin + " " + predX[key].predavatelj);
-		$("#predavanja"+x).append("<tr>" + 
-			"<td>" + predX[key].ucilnica + "</td>" + 
-			"<td>" + predX[key].termin + "</td>" + 
-			"<td>" + predX[key].predavatelj + "</td>" + 
-			"</tr>"
-		);
+		if(datumi[i] != ""){
+			$("#stev"+x).append('<td>'+ j +'.rok</td>');	
+			$("#izpiti"+x).append('<td>'+ datumi[i] +'</td>');	
+			j++;
+		}
 	}
 }
 
-function fillVaje(vaje, x){
-	var vajeX = vaje[x];
-	//console.log(vajeX);
-
-	$("#predmet"+x).append("<table id=vaje"+x+" border='1px'>");
-	
-	var key;
-	for (key in vajeX){
-		$("#vaje"+x).append("<tr>" + 
-			"<td>" + vajeX[key].ucilnica + "</td>" + 
-			"<td>" + vajeX[key].termin + "</td>" + 
-			"<td>" + vajeX[key].asistent + "</td>" + 
-			"</tr>"
-		);
-	}
-}
 
 $.getJSON( "data/urnik.json", function( data ) {
 	predavanja = data.predavanja;
@@ -141,6 +116,103 @@ $.getJSON( "data/urnik.json", function( data ) {
 	for(key in vaje){
 		fillVaje(vaje, key);
 	}
+});
+
+function fillPredavanja(pred, x){
+	var predX = pred[x];
+	//console.log(predX);
+
+	$("#panbody"+x).append('<div class="panel panel-default"> <div class="panel-heading">Predavanja</div> <div id="predbody'+x+'" class="panel-body">');
+
+	$("#predbody"+x).append("<table id=predavanja"+x+" class='table table-hover'>");
+	
+	var key;
+	for (key in predX){
+		//console.log(predX[key].ucilnica + " " + predX[key].termin + " " + predX[key].predavatelj);
+		$("#predavanja"+x).append("<tr>" + 
+			"<td>" + predX[key].ucilnica + "</td>" + 
+			"<td>" + predX[key].termin + "</td>" + 
+			"<td>" + predX[key].predavatelj + "</td>" + 
+			"</tr>"
+		);
+	}
+
+	$("#panbody"+x).append('<div class="panel panel-default"> <div class="panel-heading">Izvajalci</div> <div id="izvajbody'+x+'" class="panel-body">');
+	
+	$("#izvajbody"+x).append("<table id='izvajalci"+x+"' class='table table-hover'>");
+	$("#izvajalci"+x).append('<tr><th>Predavatelj</th><td><a href="">'+ predX[0].predavatelj +'</a></td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
+}
+
+function fillVaje(vaje, x){
+	var vajeX = vaje[x];
+	//console.log(vajeX);
+
+	$("#panbody"+x).append('<div class="panel panel-default"> <div class="panel-heading">Vaje</div> <div id="vajebody'+x+'" class="panel-body">');
+
+	$("#vajebody"+x).append("<table id=vaje"+x+" class='table table-hover'>");
+	
+	var key;
+	var asistentArr = Array(), idx=0;
+	for (key in vajeX){
+		$("#vaje"+x).append("<tr>" + 
+			"<td>" + vajeX[key].ucilnica + "</td>" + 
+			"<td>" + vajeX[key].termin + "</td>" + 
+			"<td>" + vajeX[key].asistent + "</td>" + 
+			"</tr>"
+		);
+
+		if(asistentArr.indexOf(vajeX[key].asistent)<0){
+			asistentArr[idx] = vajeX[key].asistent;
+			idx++;
+			$("#izvajalci"+x).append('<tr id="as2"><th>Asistent</th><td>'+ asistentArr[idx-1] +'</td><td><td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td></tr>');
+
+		}
+
+	}
+}
+
+$.getJSON( "data/naloge.json", function( data ) {
+	//console.log(data);
+	console.log(kraticeGlobal);
+	
+	kvizi = data.kvizi;
+	naloge = data.naloge;
+
+	var poPredmKvizi = Array();
+	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
+		poPredmKvizi[i]=Array();
+	}
+
+	var key1, key2, i=0;
+	for(key1 in kraticeGlobal){
+		for(key2 in kvizi){
+			if(kvizi[key2].name == kraticeGlobal[key1]){
+				poPredmKvizi[key1][i]=kvizi[key2];
+				i++;
+			}
+		}
+		i=0;
+	}
+
+	console.log(poPredmKvizi);
+
+	var poPredmNaloge = Array();
+	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
+		poPredmNaloge[i]=Array();
+	}
+
+	var key1, key2, i=0;
+	for(key1 in kraticeGlobal){
+		for(key2 in naloge){
+			if(naloge[key2].name == kraticeGlobal[key1]){
+				poPredmNaloge[key1][i]=naloge[key2];
+				i++;
+			}
+		}
+		i=0;
+	}
+
+	console.log(poPredmNaloge);
 });
 
 /* ---------- KONEC ---------- NOV ZA PREDMETE ---------- */
@@ -493,6 +565,9 @@ $.getJSON( "data/naloge.json", function( data ) {
 	
 	kvizi = data.kvizi;
 	naloge = data.naloge;
+
+	//console.log(kvizi);
+	//console.log(naloge);
 
 
 /*
