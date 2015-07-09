@@ -13,15 +13,14 @@ function abc(data){
 	userIdGlobal = data.student.number;
 	//console.log(userIdGlobal);
 
-	setCookie("username", userIdGlobal + "," + predmetiGlobal, 30);
+	setCookie("username", userIdGlobal + "," + kraticeGlobal, 30);
 
 
 	var userData = getCookie("username");
     if (userData != "") {
     	var ud = userData.split(","); 
-        console.log(ud);
+        console.log("za kukije " + ud);
     }
-
 }
 
 /* ZA KUKIJE */
@@ -173,7 +172,7 @@ function fillVaje(vaje, x){
 
 $.getJSON( "data/naloge.json", function( data ) {
 	//console.log(data);
-	console.log(kraticeGlobal);
+	//console.log(kraticeGlobal);
 	
 	kvizi = data.kvizi;
 	naloge = data.naloge;
@@ -182,7 +181,6 @@ $.getJSON( "data/naloge.json", function( data ) {
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
 		poPredmKvizi[i]=Array();
 	}
-
 	var key1, key2, i=0;
 	for(key1 in kraticeGlobal){
 		for(key2 in kvizi){
@@ -193,14 +191,12 @@ $.getJSON( "data/naloge.json", function( data ) {
 		}
 		i=0;
 	}
-
 	console.log(poPredmKvizi);
 
 	var poPredmNaloge = Array();
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
 		poPredmNaloge[i]=Array();
 	}
-
 	var key1, key2, i=0;
 	for(key1 in kraticeGlobal){
 		for(key2 in naloge){
@@ -211,9 +207,71 @@ $.getJSON( "data/naloge.json", function( data ) {
 		}
 		i=0;
 	}
+	//console.log(poPredmNaloge);
 
-	console.log(poPredmNaloge);
+	var key;
+	for(key in poPredmKvizi){
+		fillKvizi(poPredmKvizi, key);
+	}
+	for(key in poPredmNaloge){
+		fillNaloge(poPredmNaloge, key);
+	}
 });
+
+
+function fillKvizi(kvizi, x){
+	kviziX = kvizi[x];
+
+	if(typeof kviziX[0] != "undefined"){
+		//console.log("fillKvizi" + kviziX[0].name);
+	
+		$("#panbody"+kviziX[0].name).append('<div class="panel panel-default"> <div class="panel-heading">Obveznosti</div> <div id="obvbody'+kviziX[0].name+'" class="panel-body">');
+
+		$("#obvbody"+kviziX[0].name).append("<table id=obvez"+kviziX[0].name+" class='table table-hover'>");
+		
+		var key;
+		for(key in kviziX){
+			$("#obvez"+kviziX[0].name).append("<tr>" + 
+				"<td>kviz</td>" + 
+				"<td><a href='"+kviziX[key].link+"' target='_blank'>" + kviziX[key].rok + "</td>" +  
+				"</tr>"
+			);
+
+		}
+
+	}
+}
+
+function fillNaloge(nal, x){
+	nalX = nal[x];
+
+	if(typeof nalX[0] != "undefined"){
+		//console.log("fillNaloge" + nalX[0].name);
+
+		$("#obvbody"+nalX[0].name).append("<table id=obvez"+nalX[0].name+" class='table table-hover'>");
+		
+		var key;
+		for(key in nalX){
+			if(nalX[key].oddano=="da"){
+				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
+			}
+			else{
+				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
+			}
+
+
+			$("#obvez"+nalX[0].name).append("<tr>" + 
+				"<td>naloga</td>" + 
+				"<td><a href='"+nalX[key].link+"' target='_blank'>" + nalX[key].rok + "</td>" +
+				"<td>"+s+"</td>" +
+				"</tr>"
+			);
+
+		}
+
+	}
+
+}
 
 /* ---------- KONEC ---------- NOV ZA PREDMETE ---------- */
 
