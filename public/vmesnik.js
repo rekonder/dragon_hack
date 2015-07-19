@@ -183,7 +183,6 @@ $.getJSON( "data/urnik.json", function( data ) {
 function fillPredavanja(pred, x){
 	var predX = pred[x];
 	//console.log(predX);
-
 	$("#predavanja"+x).append("<table id=predavanjaTabela"+x+" class='table table-hover'>");
 	
 	var key;
@@ -204,7 +203,6 @@ function fillPredavanja(pred, x){
 function fillVaje(vaje, x){
 	var vajeX = vaje[x];
 	//console.log(vajeX);
-
 	$("#vaje"+x).append("<table id=vajeTabela"+x+" class='table table-hover'>");
 	
 	var key;
