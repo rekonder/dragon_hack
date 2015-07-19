@@ -84,7 +84,7 @@ function hide(idToHide){
 function setFrame(x){
 	//var x=0;
 	$("#vizitke").append(
-		'<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">' + 
+		'<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">' + 
 			'<div class="panel panel-default" id="predmet'+x+'">' + 
 				'<div id="imePredmet'+x+'" class="panel-heading">' +
 
@@ -149,9 +149,7 @@ function setFrame(x){
 						'<div id="facebook'+x+'" class="panel-body">' + 
 							//'tabela' + 
 						'</div>' + 
-					'</div>' + 
-
-				'</div>' + 
+					'</div>' +  
 				'</div>' + 
 			'</div>' + 
 		'</div>'
