@@ -1,3 +1,6 @@
+/*
+*	@author Ziga C
+*/
 
 //var userIdGlobal;
 //var predmetiGlobal = Array();
@@ -74,57 +77,81 @@ function spremeniPredmete(){
 
 /* ---------- ZACETEK ---------- NOV ZA PREDMETE ---------- */
 
+function hide(idToHide){
+	$(idToHide).toggle();
+}
+
 function setFrame(x){
 	//var x=0;
 	$("#vizitke").append(
 		'<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">' + 
 			'<div class="panel panel-default" id="predmet'+x+'">' + 
-				'<div id="imePredmet'+x+'" class="panel-heading"><b>' + x + ' | </b></div>' + 
-					'<div id="vsebinaPredmet'+x+'" class="panel-body">' + 
-						
-						'<div class="panel panel-default">' + 
-							'<div class="panel-heading"><b>Izvajalci ' + x + '</b></div>' + 
-							'<div id="izvajalci'+x+'" class="panel-body">' + 
-								//'tabela' + 
-							'</div>' + 
+				'<div id="imePredmet'+x+'" class="panel-heading">' +
+
+				'</div>' + 
+
+				'<div id="vsebinaPredmet'+x+'" class="panel-body">' + 
+					
+					'<div class="panel panel-default">' + 
+						'<div class="panel-heading">' +
+							'<b><a href="javascript:hide(izvajalci'+x+')">Izvajalci ' + x + '</a></b>' +
 						'</div>' + 
 
-						'<div class="panel panel-default">' + 
-							'<div class="panel-heading"><b>Predavanja ' + x + '</b></div>' + 
-							'<div id="predavanja'+x+'" class="panel-body">' + 
-								//'tabela' + 
-							'</div>' + 
+						'<div id="izvajalci'+x+'" class="panel-body">' + 
+							//'tabela' + 
 						'</div>' + 
-
-						'<div class="panel panel-default">' + 
-							'<div class="panel-heading"><b>Vaje ' + x + '</b></div>' + 
-							'<div id="vaje'+x+'" class="panel-body">' + 
-								//'tabela' + 
-							'</div>' + 
-						'</div>' + 
-						
-						'<div class="panel panel-default">' + 
-							'<div class="panel-heading"><b>Obveznosti ' + x + '</b></div>' + 
-							'<div id="obveznosti'+x+'" class="panel-body">' + 
-								//'tabela' + 
-							'</div>' + 
-						'</div>' + 
-
-						'<div class="panel panel-default">' + 
-							'<div class="panel-heading"><b>Izpiti ' + x + '</b></div>' + 
-							'<div id="izpiti'+x+'" class="panel-body">' + 
-								//'tabela' + 
-							'</div>' + 
-						'</div>' + 
-
-						'<div class="panel panel-default">' + 
-							'<div class="panel-heading"><b>Facebook ' + x + '</b></div>' + 
-							'<div id="facebook'+x+'" class="panel-body">' + 
-								//'tabela' + 
-							'</div>' + 
-						'</div>' + 
-
 					'</div>' + 
+
+					'<div class="panel panel-default">' + 
+						'<div class="panel-heading">' +
+							'<b><a href="javascript:hide(predavanja'+x+')">Predavanja ' + x + '</a></b>' +
+						'</div>' + 
+						
+						'<div id="predavanja'+x+'" class="panel-body">' + 
+							//'tabela' + 
+						'</div>' + 
+					'</div>' + 
+
+					'<div class="panel panel-default">' + 
+						'<div class="panel-heading">' +
+							'<b><a href="javascript:hide(vaje'+x+')">Vaje ' + x + '</a></b>' +
+						'</div>' + 
+						
+						'<div id="vaje'+x+'" class="panel-body">' + 
+							//'tabela' + 
+						'</div>' + 
+					'</div>' + 
+					
+					'<div class="panel panel-default">' + 
+						'<div class="panel-heading">' +
+							'<b><a href="javascript:hide(obveznosti'+x+')">Obveznosti ' + x + '</a></b>' +
+						'</div>' + 
+						
+						'<div id="obveznosti'+x+'" class="panel-body">' + 
+							//'tabela' + 
+						'</div>' + 
+					'</div>' + 
+
+					'<div class="panel panel-default">' + 
+						'<div class="panel-heading">' +
+							'<b><a href="javascript:hide(izpiti'+x+')">Izpiti ' + x + '</a></b>' +
+						'</div>' + 
+						
+						'<div id="izpiti'+x+'" class="panel-body">' + 
+							//'tabela' + 
+						'</div>' + 
+					'</div>' + 
+
+					'<div class="panel panel-default">' + 
+						'<div class="panel-heading">' +
+							'<b><a href="javascript:hide(facebook'+x+')">Facebook ' + x + '</a></b></div>' + 
+						
+						'<div id="facebook'+x+'" class="panel-body">' + 
+							//'tabela' + 
+						'</div>' + 
+					'</div>' + 
+
+				'</div>' + 
 				'</div>' + 
 			'</div>' + 
 		'</div>'
@@ -152,7 +179,7 @@ $.getJSON( "data/studis.json", function( data ) {
 
 function fillPredmet(podatki, x){
 	imeP = podatki[x].name;
-	$("#imePredmet"+x).append("<b>"+imeP+"</b>");
+	$("#imePredmet"+x).append("<b><a href='javascript:hide(vsebinaPredmet"+x+")'>"+ x + " | " + imeP+"</a></b>");
 
 	$("#izpiti"+x).append("<table class='table table-hover'> <tr id='stev"+x+"'> <tr id='roki"+x+"'> ");
 	datumi = podatki[x].dates.split(",");
