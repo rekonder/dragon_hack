@@ -1,0 +1,742 @@
+<html ng-app>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" ></script>
+	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" ></script>
+
+	    		<style type="text/css">
+		
+			body {
+			
+				padding: 32px;
+				padding-top: 10px;
+				
+				background-image:  url("bg_circles_top.png");
+				background-repeat: no-repeat;
+				background-position: top;
+				background-color: #eeeeee;
+				background-size: 100%;
+			}
+			
+			.navbar{
+				background-color: #b4162c;
+			}
+			
+			.nav.navbar-nav li a {
+				color: white;
+			}		
+			
+			.nav.navbar-nav li a:hover,
+			.nav.navbar-nav li a:focus{
+				color: white;
+				background-color: #92040a;
+			}
+			
+			.nav.navbar-header a {
+				color: white;
+			}		
+			
+			.nav.navbar-header a:hover,
+			.nav.navbar-header a:focus{
+				color: white;
+				background-color: #92040a;
+			}
+			
+			/* submenu */
+			.navbar-default .navbar-nav > .dropdown .active a {
+				color:white;
+				background-color: #92040a;
+			}
+			
+			.navbar-default .navbar-nav > .dropdown > .dropdown-menu a{
+				/*background-color: #b4162c;*/
+				color:black;
+			}
+			
+			.navbar-default .navbar-nav > .dropdown a:hover,
+			.navbar-default .navbar-nav > .dropdown a:focus {
+				color:white;
+				background-color: #92040a;
+			}
+			
+			.panel > .panel{
+				background-color:lightgrey;
+			}
+			
+			
+		</style>
+
+	</head>
+	<body>
+
+			<div class="row" id="vizitke1">
+			
+			
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="panel">
+						<div class="panel panel-default">
+							<b>
+							<div id="predmet1" class="panel-heading">APS2 | </div>
+							</b>
+						</div>
+						<div class="panel-body">
+							<table id="izvajalci1" class="table table-hover">
+								<!--
+								<tr>
+									<th>Predavatelj</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti1" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Asistente
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="as1" class="panel-collapse collapse collapseAsistenti1 " aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr id="as2" class="panel-collapse collapse collapseAsistenti1" aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								-->
+							
+							</table>
+							
+							</br>
+							
+							<table id="termini1" class="table table-hover">
+								<!--
+								<tr>
+									<th>predavanja</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje1" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij vaje
+										</a>
+									</th>
+								</tr>
+								
+								
+								<tr id="vaje1" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+
+								<tr id="vaje2" class="panel-collapse collapse collapseVaje1" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>	
+								-->
+								
+								
+								<!-- <tr> ... </tr> generiras v javascriptu-->
+							</table>
+							
+							</br>
+							
+							<table id="naloge1" class="table table-hover">
+								
+								<!--
+								<tr>
+									<th colspan="2">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge1" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Naloge
+										</a>
+									
+									</th>
+								</tr>
+								
+								<tr id="nal1" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>23.maj, 23:55</td>
+									<td>
+										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									</td>
+								</tr>
+
+								<tr id="nal2" class="panel-collapse collapse collapseNaloge1" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>1. junij, 23:59</td>
+									<td>
+										<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+									</td>
+								</tr>
+								-->
+								
+								<!-- Naloge das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "naloge"-->
+							</table>
+							
+							</br>
+							
+							<table id="izpiti1" class="table table-hover">
+								<tr>
+									<th>1. izpitni rok</th>
+									<th>2. izpitni rok</th>
+									<th>3. izpitni rok</th>
+								</tr>
+								<tr id ="roki1">
+									<!--
+									<td>1.rok</td>
+									<td>2.rok</td>
+									<td>3.rok</td>
+									-->
+								</tr>
+								<!-- izpite das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "izpite"-->
+							</table>
+							
+							</br>
+							
+							<table id="fbfeed" class="table table-hover">
+								<tr>
+									<th>Nedavne objave v skupini</th>
+								</tr>
+								<tr>
+									<td id="fbfeed1">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
+										  
+										</ul> -->
+									</td>
+								</tr>
+								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
+							</table>
+							
+							
+							
+						</div>
+					</div>
+				</div>
+
+				
+				
+				
+				
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="panel">
+						<div class="panel panel-default">
+							<b>
+							<div id="predmet2" class="panel-heading">ORS | </div>
+							</b>
+						</div>
+						<div class="panel-body">
+							<table id="izvajalci2" class="table table-hover">
+								<!--
+								<tr>
+									<th>Predavatelj</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti2" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Asistente
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="as1" class="panel-collapse collapse collapseAsistenti2 " aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr id="as2" class="panel-collapse collapse collapseAsistenti2" aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								-->
+							
+							</table>
+							
+							</br>
+							
+							<table id="termini2" class="table table-hover">
+								<!--
+								<tr>
+									<th>predavanja</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje2" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij vaje
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="vaje1" class="panel-collapse collapse collapseVaje2" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+
+								<tr id="vaje2" class="panel-collapse collapse collapseVaje2" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+								-->
+								
+								
+								<!-- <tr> ... </tr> generiras v javascriptu-->
+							</table>
+							
+							</br>
+							
+							<table id="naloge2" class="table table-hover">
+								<!--
+								<tr>
+									<th colspan="2">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge2" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Naloge
+										</a>
+									
+									</th>
+								</tr>
+								<tr id="nal1" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>23.maj, 23:55</td>
+									<td>
+										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									</td>
+								</tr>
+
+								<tr id="nal2" class="panel-collapse collapse collapseNaloge2" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>1. junij, 23:59</td>
+									<td>
+										<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+									</td>
+								</tr>
+								-->
+								
+								<!-- Naloge das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "naloge"-->
+							</table>
+							
+							</br>
+							
+							<table id="izpiti2" class="table table-hover">
+								<tr>
+									<th>1. izpitni rok</th>
+									<th>2. izpitni rok</th>
+									<th>3. izpitni rok</th>
+								</tr>
+								<tr id ="roki2">
+									<!--
+									<td>1.rok</td>
+									<td>2.rok</td>
+									<td>3.rok</td>
+									-->
+								</tr>
+								<!-- izpite das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "izpite"-->
+							</table>
+							
+							</br>
+							
+							<table id="fbfeed" class="table table-hover">
+								<tr>
+									<th>Nedavne objave v skupini</th>
+								</tr>
+								<tr>
+									<td id="fbfeed2">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
+										  
+										</ul> -->
+									</td>
+								</tr>
+								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
+							</table>
+							
+							
+							
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="panel">
+						<div class="panel panel-default">
+							<b>
+							<div id="predmet3" class="panel-heading">PPJ | </div>
+							</b>
+						</div>
+						<div class="panel-body">
+							<table id="izvajalci3" class="table table-hover">
+								<!--<tr>
+									<th>Predavatelj</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti3" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Asistente
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="as1" class="panel-collapse collapse collapseAsistenti3 " aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr id="as2" class="panel-collapse collapse collapseAsistenti3" aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+							
+							-->
+							</table>
+							
+							</br>
+							
+							<table id="termini3" class="table table-hover">
+								<!--
+								<tr>
+									<th>predavanja</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje3" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij vaje
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="vaje1" class="panel-collapse collapse collapseVaje3" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+
+								<tr id="vaje2" class="panel-collapse collapse collapseVaje3" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+
+								-->
+								
+								<!-- <tr> ... </tr> generiras v javascriptu-->
+							</table>
+							
+							</br>
+							
+							<table id="naloge3" class="table table-hover">
+								
+								<!--
+								<tr>
+									<th colspan="2">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge3" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Naloge
+										</a>
+									
+									</th>
+								</tr>
+								<tr id="nal1" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>23.maj, 23:55</td>
+									<td>
+										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									</td>
+								</tr>
+
+								<tr id="nal2" class="panel-collapse collapse collapseNaloge3" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>1. junij, 23:59</td>
+									<td>
+										<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+									</td>
+								</tr>
+								-->
+								
+								<!-- Naloge das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "naloge"-->
+							</table>
+							
+							</br>
+							
+							<table id="izpiti3" class="table table-hover">
+								<tr>
+									<th>1. izpitni rok</th>
+									<th>2. izpitni rok</th>
+									<th>3. izpitni rok</th>
+								</tr>
+								<tr id ="roki3">
+									<!--
+									<td>1.rok</td>
+									<td>2.rok</td>
+									<td>3.rok</td>
+									-->
+								</tr>
+								<!-- izpite das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "izpite"-->
+							</table>
+							
+							</br>
+							
+							<table id="fbfeed" class="table table-hover">
+								<tr>
+									<th>Nedavne objave v skupini</th>
+								</tr>
+								<tr>
+									<td id="fbfeed3">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
+										  
+										</ul> -->
+									</td>
+								</tr>
+								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
+							</table>
+							
+							
+							
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+					<div class="panel">
+						<div class="panel panel-default">
+							<b>
+							<div id="predmet4" class="panel-heading">TIS | </div>
+							</b>
+						</div>
+						<div class="panel-body">
+							<table id="izvajalci4" class="table table-hover">
+								<!--
+								<tr>
+									<th>Predavatelj</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseAsistenti4" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Asistente
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="as1" class="panel-collapse collapse collapseAsistenti4 " aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								
+								<tr id="as2" class="panel-collapse collapse collapseAsistenti4" aria-expanded="false" style="height: 0px;">
+									<th>Asistent</th>
+									<td>Ime Priimek</td>
+									<td>
+										<button type="button" class="btn btn-default" aria-label="Left Align">
+											<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+										</button>
+									</td>
+								</tr>
+								-->
+							
+							</table>
+							
+							</br>
+							
+							<table id="termini4" class="table table-hover">
+								<!--
+								<tr>
+									<th>predavanja</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+								
+								<tr>
+									<th colspan="3">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseVaje4" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij vaje
+										</a>
+									</th>
+								</tr>
+								
+								<tr id="vaje1" class="panel-collapse collapse collapseVaje4" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+
+								<tr id="vaje2" class="panel-collapse collapse collapseVaje4" aria-expanded="false" style="height: 0px;">
+									<th>vaje</th>
+									<td>dan, ura ...</td>
+									<td>kje</td>
+								</tr>
+								-->
+								
+								
+								<!-- <tr> ... </tr> generiras v javascriptu-->
+							</table>
+							
+							</br>
+							
+							<table id="naloge4" class="table table-hover">
+								<!--
+								<tr>
+									<th colspan="2">
+										<a data-toggle="collapse" data-parent="#accordion" href=".collapseNaloge4" class="collapsed" aria-expanded="false">
+											Prikazi/Skrij Naloge
+										</a>
+									
+									</th>
+								</tr>
+								<tr id="nal1" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>23.maj, 23:55</td>
+									<td>
+										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									</td>
+								</tr>
+
+								<tr id="nal2" class="panel-collapse collapse collapseNaloge4" aria-expanded="false" style="height: 0px;">
+									<td>Naloga1</td>
+									<td>1. junij, 23:59</td>
+									<td>
+										<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+									</td>
+								</tr>
+								-->
+
+								
+								<!-- Naloge das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "naloge"-->
+							</table>
+							
+							</br>
+							
+							<table id="izpiti4" class="table table-hover">
+								<tr>
+									<th>1. izpitni rok</th>
+									<th>2. izpitni rok</th>
+									<th>3. izpitni rok</th>
+								</tr>
+								<tr id ="roki4">
+									<!--
+									<td>1.rok</td>
+									<td>2.rok</td>
+									<td>3.rok</td>
+									-->
+								</tr>
+								<!-- izpite das v "<tr><td></td></tr>" tag-e in vstavis v tabelo "izpite"-->
+							</table>
+							
+							</br>
+							
+							<table id="fbfeed" class="table table-hover">
+								<tr>
+									<th>Nedavne objave v skupini</th>
+								</tr>
+								<tr>
+									<td id="fbfeed4">
+										<!-- <ul id="pillAPS" class="nav nav-pills">
+										  
+										</ul> -->
+									</td>
+								</tr>
+								<!-- koda za FB feed pride v "<tr><td></td></tr>" -->
+							</table>
+							
+							
+							
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</div>
+	</body>
+</html>
