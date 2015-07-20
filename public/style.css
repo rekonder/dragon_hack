@@ -1,0 +1,69 @@
+body {
+	padding: 32px;
+	padding-top: 10px;
+	
+	background-image:  url("bg_circles_top.png");
+	background-repeat: no-repeat;
+	background-position: top;
+	background-color: #eeeeee;
+	background-size: 100%;
+}
+
+.navbar{
+	background-color: #b4162c;
+}
+
+.nav.navbar-nav li a {
+	color: white;
+}		
+
+.nav.navbar-nav li a:hover,
+.nav.navbar-nav li a:focus{
+	color: white;
+	background-color: #92040a;
+}
+
+.nav.navbar-header a {
+	color: white;
+}		
+
+.nav.navbar-header a:hover,
+.nav.navbar-header a:focus{
+	color: white;
+	background-color: #92040a;
+}
+
+/* submenu */
+.navbar-default .navbar-nav > .dropdown .active a {
+	color:white;
+	background-color: #92040a;
+}
+
+.navbar-default .navbar-nav > .dropdown > .dropdown-menu a{
+	/*background-color: #b4162c;*/
+	color:black;
+}
+
+.navbar-default .navbar-nav > .dropdown a:hover,
+.navbar-default .navbar-nav > .dropdown a:focus {
+	color:white;
+	background-color: #92040a;
+}
+
+.panel > .panel-heading{
+	background-color:lightgrey;
+}
+
+.panel{
+	border-radius:0px;
+}
+
+.panel-heading{
+	border-radius:0px;
+}
+
+hr{
+	color:lightgrey;
+	border-color:lightgrey;
+	background-color:lightgrey;
+}
