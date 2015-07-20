@@ -2,6 +2,13 @@
 *	@author Ziga C
 */
 
+// capitalize first letter
+String.prototype.capitalizeFirst = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
+
+
+
 //var userIdGlobal;
 //var predmetiGlobal = Array();
 var kraticeGlobal = Array();
@@ -81,79 +88,63 @@ function hide(idToHide){
 	$(idToHide).toggle();
 }
 
+function setSubFrame(subV, x){
+	$("#vsebinaPredmet"+x).append( 
+		'<div class="panel panel-default">' + 
+			'<div class="panel-heading">' +
+				'<b> <a href="javascript:hide(' + subV + x + ')">' + subV.capitalizeFirst() + " " + x + '</a> </b>' +
+			'</div>' + 
+
+			'<div id="' + subV + x + '" class="panel-body">' + 
+				//'tabela' + 
+			'</div>' + 
+		'</div>'
+	);
+}
+
+function setSubFrame2(subVs, x){
+	var i;
+	for(i in subVs){
+		$("#vsebinaPredmet"+x).append( 
+			'<div class="panel panel-default">' + 
+				'<div class="panel-heading">' +
+					'<b> <a href="javascript:hide(' + subVs[i] + x + ')">' + subVs[i].capitalizeFirst() + " " + x + '</a> </b>' +
+				'</div>' + 
+
+				'<div id="' + subVs[i] + x + '" class="panel-body">' + 
+					//'tabela' + 
+				'</div>' + 
+			'</div>'
+		);
+	}
+}
+
 function setFrame(x){
 	//var x=0;
 	$("#vizitke").append(
 		'<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">' + 
-			'<div class="panel panel-default" id="predmet'+x+'">' + 
-				'<div id="imePredmet'+x+'" class="panel-heading">' +
+			'<div class="panel panel-default" id="predmet' + x + '">' + 
 
+				'<div id="imePredmet' + x + '" class="panel-heading">' +
 				'</div>' + 
 
-				'<div id="vsebinaPredmet'+x+'" class="panel-body">' + 
-					
-					'<div class="panel panel-default">' + 
-						'<div class="panel-heading">' +
-							'<b><a href="javascript:hide(izvajalci'+x+')">Izvajalci ' + x + '</a></b>' +
-						'</div>' + 
-
-						'<div id="izvajalci'+x+'" class="panel-body">' + 
-							//'tabela' + 
-						'</div>' + 
-					'</div>' + 
-
-					'<div class="panel panel-default">' + 
-						'<div class="panel-heading">' +
-							'<b><a href="javascript:hide(predavanja'+x+')">Predavanja ' + x + '</a></b>' +
-						'</div>' + 
-						
-						'<div id="predavanja'+x+'" class="panel-body">' + 
-							//'tabela' + 
-						'</div>' + 
-					'</div>' + 
-
-					'<div class="panel panel-default">' + 
-						'<div class="panel-heading">' +
-							'<b><a href="javascript:hide(vaje'+x+')">Vaje ' + x + '</a></b>' +
-						'</div>' + 
-						
-						'<div id="vaje'+x+'" class="panel-body">' + 
-							//'tabela' + 
-						'</div>' + 
-					'</div>' + 
-					
-					'<div class="panel panel-default">' + 
-						'<div class="panel-heading">' +
-							'<b><a href="javascript:hide(obveznosti'+x+')">Obveznosti ' + x + '</a></b>' +
-						'</div>' + 
-						
-						'<div id="obveznosti'+x+'" class="panel-body">' + 
-							//'tabela' + 
-						'</div>' + 
-					'</div>' + 
-
-					'<div class="panel panel-default">' + 
-						'<div class="panel-heading">' +
-							'<b><a href="javascript:hide(izpiti'+x+')">Izpiti ' + x + '</a></b>' +
-						'</div>' + 
-						
-						'<div id="izpiti'+x+'" class="panel-body">' + 
-							//'tabela' + 
-						'</div>' + 
-					'</div>' + 
-
-					'<div class="panel panel-default">' + 
-						'<div class="panel-heading">' +
-							'<b><a href="javascript:hide(facebook'+x+')">Facebook ' + x + '</a></b></div>' + 
-						
-						'<div id="facebook'+x+'" class="panel-body">' + 
-							//'tabela' + 
-						'</div>' + 
-					'</div>' +  
+				'<div id="vsebinaPredmet' + x + '" class="panel-body">' +
 				'</div>' + 
+
 			'</div>' + 
 		'</div>'
 	);
+
+	setSubFrame2(["izvajalci", "predavanja", "vaje", "obveznosti", "izpiti", "facebook"], x);
+
+	/*
+	setSubFrame("izvajalci", x);
+	setSubFrame("predavanja", x);
+	setSubFrame("vaje", x);
+	setSubFrame("obveznosti", x);
+	setSubFrame("izpiti", x);
+	setSubFrame("facebook", x);
+	*/
 }
 
 $.getJSON( "data/studis.json", function( data ) {
