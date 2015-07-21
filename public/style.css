@@ -33,6 +33,16 @@ body {
 	background-color: #92040a;
 }
 
+.navbar-default .navbar-nav > .active > a,  
+.navbar-default .navbar-nav > .active > a:focus {
+	color: white; /*#555;*/
+	background-color: #92040a;
+}
+.navbar-default .navbar-nav > .active > a:hover {
+	color: white;
+	background-color:#92040a;
+}
+
 /* submenu */
 .navbar-default .navbar-nav > .dropdown .active a {
 	color:white;
