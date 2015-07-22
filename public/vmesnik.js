@@ -121,7 +121,7 @@ function setFrame(x){
 }
 
 $.getJSON( "data/studis.json", function( data ) {
-	predmeti = data.predmeti;
+	var predmeti = data.predmeti;
 	var key, i=0;
 	for(key in predmeti){
 		kraticeGlobal[i]=key;
@@ -130,23 +130,23 @@ $.getJSON( "data/studis.json", function( data ) {
 		i++;
 	}
 
-	student = data.student;
-	ime = student.name;
-	priimek = student.surname;
+	var student = data.student;
+	var ime = student.name;
+	var priimek = student.surname;
 	$("#imeStudent").append('<a href="javascript:alert(\'prijavljeni ste kot: ' + ime + ' ' + priimek + '\')">' + ime + " " + priimek + '</a>');
-	program = student.program;
+	var program = student.program;
 	$("#program").append('<a href="javascript:alert(\'program: ' + program + '\')">' + program + '</a>');
 
 });
 
 function fillPredmet(podatki, x){
-	imeP = podatki[x].name;
+	var imeP = podatki[x].name;
 	$("#imePredmet"+x).append("<b><a href='javascript:hide(vsebinaPredmet"+x+")'>"+ x + " | " + imeP+"</a></b>");
 
 	$("#izpiti"+x).append("<table class='table table-hover'> <tr id='stev"+x+"'> <tr id='roki"+x+"'> ");
-	datumi = podatki[x].dates.split(",");
+	var datumi = podatki[x].dates.split(",");
 	var j=1;
-	for(i in datumi){
+	for(var i in datumi){
 		if(datumi[i] != ""){
 			$("#stev"+x).append('<th>'+ j +'.rok</th>');	
 			$("#roki"+x).append('<td>'+ datumi[i] +'</td>');	
@@ -156,8 +156,8 @@ function fillPredmet(podatki, x){
 }
 
 $.getJSON( "data/urnik.json", function( data ) {
-	predavanja = data.predavanja;
-	vaje = data.vaje;
+	var predavanja = data.predavanja;
+	var vaje = data.vaje;
 	//console.log(predavanja + " " + vaje );
 
 	var key;
@@ -215,9 +215,9 @@ function fillVaje(vaje, x){
 $.getJSON( "data/naloge.json", function( data ) {
 	//console.log(data);
 	//console.log(kraticeGlobal);
-	
-	kvizi = data.kvizi;
-	naloge = data.naloge;
+
+	var kvizi = data.kvizi;
+	var naloge = data.naloge;
 
 	var poPredmKvizi = new Array();
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
@@ -262,7 +262,7 @@ $.getJSON( "data/naloge.json", function( data ) {
 
 
 function fillKvizi(kvizi, x){
-	kviziX = kvizi[x];
+	var kviziX = kvizi[x];
 
 	if(typeof kviziX[0] != "undefined"){
 		//console.log("fillKvizi" + kviziX[0].name);
@@ -284,7 +284,7 @@ function fillKvizi(kvizi, x){
 }
 
 function fillNaloge(nal, x){
-	nalX = nal[x];
+	var nalX = nal[x];
 
 	if(typeof nalX[0] != "undefined"){
 		//console.log("fillNaloge" + nalX[0].name);
@@ -293,10 +293,10 @@ function fillNaloge(nal, x){
 		var key;
 		for(key in nalX){
 			if(nalX[key].oddano=="da"){
-				s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
+				var s='<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
 			}
 			else{
-				s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
+				var s='<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
 			}
 
 			$("#nalogeTabela"+nalX[0].name).append("<tr>" + 
