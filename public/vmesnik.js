@@ -5,36 +5,9 @@
 // capitalize first letter
 String.prototype.capitalizeFirst = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
 
-
-
-//var userIdGlobal;
-//var predmetiGlobal = Array();
-var kraticeGlobal = Array();
-
-/*
-function abc(data){
-	var key, i=0;
-	for(key in data.predmeti){
-		//console.log(data.predmeti[key].name);
-		predmetiGlobal[i]=data.predmeti[key].name;
-		i++;
-	}
-	//console.log(predmetiGlobal);
-	userIdGlobal = data.student.number;
-	//console.log(userIdGlobal);
-
-	setCookie("username", userIdGlobal + "," + kraticeGlobal, 30);
-
-
-	var userData = getCookie("username");
-    if (userData != "") {
-    	var ud = userData.split(","); 
-        console.log("za kukije " + ud);
-    }
-}
-*/
+var kraticeGlobal = new Array();
 
 /* ---------- ZACETEK ---------- ZA KUKIJE ---------- */
 
@@ -222,7 +195,7 @@ function fillVaje(vaje, x){
 	$("#vaje"+x).append("<table id=vajeTabela"+x+" class='table table-hover'>");
 	
 	var key;
-	var asistentArr = Array(), idx=0;
+	var asistentArr = new Array(), idx=0;
 	for (key in vajeX){
 		$("#vajeTabela"+x).append("<tr>" + 
 			"<td>" + vajeX[key].ucilnica + "</td>" + 
@@ -246,9 +219,9 @@ $.getJSON( "data/naloge.json", function( data ) {
 	kvizi = data.kvizi;
 	naloge = data.naloge;
 
-	var poPredmKvizi = Array();
+	var poPredmKvizi = new Array();
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
-		poPredmKvizi[i]=Array();
+		poPredmKvizi[i]=new Array();
 	}
 	var key1, key2, i=0;
 	for(key1 in kraticeGlobal){
@@ -262,9 +235,9 @@ $.getJSON( "data/naloge.json", function( data ) {
 	}
 	//console.log(poPredmKvizi);
 
-	var poPredmNaloge = Array();
+	var poPredmNaloge = new Array();
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
-		poPredmNaloge[i]=Array();
+		poPredmNaloge[i]=new Array();
 	}
 	var key1, key2, i=0;
 	for(key1 in kraticeGlobal){
