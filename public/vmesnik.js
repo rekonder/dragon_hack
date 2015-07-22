@@ -7,7 +7,7 @@ String.prototype.capitalizeFirst = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
-var kraticeGlobal = new Array();
+var kraticeGlobal = [];
 
 /* ---------- ZACETEK ---------- ZA KUKIJE ---------- */
 
@@ -195,7 +195,7 @@ function fillVaje(vaje, x){
 	$("#vaje"+x).append("<table id=vajeTabela"+x+" class='table table-hover'>");
 	
 	var key;
-	var asistentArr = new Array(), idx=0;
+	var asistentArr = [], idx=0;
 	for (key in vajeX){
 		$("#vajeTabela"+x).append("<tr>" + 
 			"<td>" + vajeX[key].ucilnica + "</td>" + 
@@ -219,9 +219,9 @@ $.getJSON( "data/naloge.json", function( data ) {
 	var kvizi = data.kvizi;
 	var naloge = data.naloge;
 
-	var poPredmKvizi = new Array();
+	var poPredmKvizi = [];
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
-		poPredmKvizi[i]=new Array();
+		poPredmKvizi[i]=[];
 	}
 	var key1, key2, i=0;
 	for(key1 in kraticeGlobal){
@@ -235,9 +235,9 @@ $.getJSON( "data/naloge.json", function( data ) {
 	}
 	//console.log(poPredmKvizi);
 
-	var poPredmNaloge = new Array();
+	var poPredmNaloge = [];
 	for (var i = kraticeGlobal.length - 1; i >= 0; i--) {
-		poPredmNaloge[i]=new Array();
+		poPredmNaloge[i]=[];
 	}
 	var key1, key2, i=0;
 	for(key1 in kraticeGlobal){
