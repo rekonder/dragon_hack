@@ -8,7 +8,7 @@ String.prototype.capitalizeFirst = function() {
 };
 
 var kraticeGlobal = [];
-
+var hiddenSubjects = [];
 /* ---------- ZACETEK ---------- ZA KUKIJE ---------- */
 
 function setCookie(cname, cvalue, exdays) {
@@ -34,18 +34,20 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-    var userData=getCookie("username");
+    var userData=getCookie("hideSubjects");
+    console.log(userData);
     if (userData !== "") {
     	var ud = userData.split(","); 
-        alert("tabela: " + ud);
+    	alert("tabela: " + ud);
+    	for(var key in ud){
+    		hideBlocks('#' + ud[key]);
+    	}
     } else {
-       if (user !== "" && user !== null) {
-           setCookie("username", user, 30);
-       }
+           setCookie("hideSubjects", hiddenSubjects, 30);
     }
 }
 
-function spremeniPredmete(){
+function changeSubjects(){
 	// zaenkrat samo v alertu pokaze vpisno + vse predmete (skupaj v arrayu)
 	checkCookie();
 }
@@ -58,6 +60,23 @@ function spremeniPredmete(){
 
 function hide(idToHide){
 	$(idToHide).toggle();
+}
+
+function hideBlocks(idToHide){
+	$(idToHide).toggle();
+
+	if( !($(idToHide).is(":visible")) ){
+		hiddenSubjects.push(idToHide.id);
+	}
+	else{
+		hiddenSubjects.pop(idToHide.id);
+	}
+	console.log(hiddenSubjects);
+	
+	if (hiddenSubjects === undefined || hiddenSubjects.length == 0) {
+    	// empty
+	}
+	setCookie("hideSubjects", hiddenSubjects, 30);
 }
 
 function setSubFrame(subV, x){
@@ -92,8 +111,8 @@ function setSubFrame2(subVs, x){
 
 function setFrame(x){
 	$("#vizitke").append(
-		'<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">' + 
-			'<div class="panel panel-default" id="predmet' + x + '">' + 
+		'<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" id="frame' + x + '">' + 
+			'<div class="panel panel-default" id="predmet' + x + '" >' + 
 
 				'<div id="imePredmet' + x + '" class="panel-heading">' +
 				'</div>' + 
@@ -115,8 +134,13 @@ $.getJSON( "data/studis.json", function( data ) {
 		kraticeGlobal[i] = key;
 		setFrame(key);
 		fillPredmet(predmeti, key);
+
+		fillChangeSubjects(key);
+
 		i++;
 	}
+
+	//changeSubjects();
 
 	var student = data.student;
 	var ime = student.name;
@@ -135,11 +159,19 @@ function fillPredmet(podatki, x){
 	var datumi = podatki[x].dates.split(",");
 	for(var i in datumi){
 		if(datumi[i] !== ""){
-			$("#stev" + x).append('<th>' + (j+1) +'.rok</th>');
+			$("#stev" + x).append('<th>' + (parseInt(i)+1) +'.rok</th>');
 			$("#roki" + x).append('<td>' + datumi[i] +'</td>');
 		}
 	}
 }
+
+function fillChangeSubjects(x){
+	$('#subjectChkBox').append(
+		'<a href="javascript:hideBlocks(frame' + x + ')">'+
+		'<input type="checkbox" name="' + x + '" value="' + x + '" checked> ' + x + 
+		'</a></br>');
+}
+
 
 $.getJSON( "data/urnik.json", function( data ) {
 	var predavanja = data.predavanja;
