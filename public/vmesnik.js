@@ -35,13 +35,24 @@ function getCookie(cname) {
 
 function checkCookie() {
     var userData=getCookie("hideSubjects");
-    console.log(userData);
+    
+    //console.log(userData);
+    //console.log("prej " + hiddenSubjects);
+    
     if (userData !== "") {
     	var ud = userData.split(","); 
-    	alert("tabela: " + ud);
-    	for(var key in ud){
-    		hideBlocks('#' + ud[key]);
+    	//alert("tabela: " + ud);
+    	
+    	for(var key in ud) {
+    		hiddenSubjects[key] = ud[key];
+    		var uudd = ud[key].split(":");
+    		//console.log(uudd);
+    		if(uudd[1] === "true") {
+    			//console.log(uudd[0]);
+    			hideBlocksC('#' + uudd[0]);
+    		}
     	}
+    	//console.log("potem " + hiddenSubjects);
     } else {
            setCookie("hideSubjects", hiddenSubjects, 30);
     }
@@ -64,19 +75,26 @@ function hide(idToHide){
 
 function hideBlocks(idToHide){
 	$(idToHide).toggle();
+	//console.log(idToHide.id);
 
-	if( !($(idToHide).is(":visible")) ){
-		hiddenSubjects.push(idToHide.id);
+	for (var key in hiddenSubjects) {
+		if(hiddenSubjects[key].indexOf(idToHide.id) > -1) {
+			if(hiddenSubjects[key].indexOf("true") > -1) {
+				hiddenSubjects[key] = idToHide.id + ":" + false;
+			}
+			else {
+				hiddenSubjects[key] = idToHide.id + ":" + true;
+			}
+		}
 	}
-	else{
-		hiddenSubjects.pop(idToHide.id);
-	}
-	console.log(hiddenSubjects);
 	
-	if (hiddenSubjects === undefined || hiddenSubjects.length == 0) {
-    	// empty
-	}
+	//console.log(hiddenSubjects);
+
 	setCookie("hideSubjects", hiddenSubjects, 30);
+}
+
+function hideBlocksC(idToHide){
+	$(idToHide).hide();
 }
 
 function setSubFrame(subV, x){
@@ -136,6 +154,7 @@ $.getJSON( "data/studis.json", function( data ) {
 		fillPredmet(predmeti, key);
 
 		fillChangeSubjects(key);
+		hiddenSubjects[i] = 'frame' + key + ":" + false;
 
 		i++;
 	}
@@ -166,10 +185,7 @@ function fillPredmet(podatki, x){
 }
 
 function fillChangeSubjects(x){
-	$('#subjectChkBox').append(
-		'<a href="javascript:hideBlocks(frame' + x + ')">'+
-		'<input type="checkbox" name="' + x + '" value="' + x + '" checked> ' + x + 
-		'</a></br>');
+	$('#subjectChkBox').append('<a href="javascript:hideBlocks(frame' + x + ')">' + x + '</a></br>');
 }
 
 
