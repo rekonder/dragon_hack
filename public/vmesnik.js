@@ -63,6 +63,31 @@ function changeSubjects(){
 	checkCookie();
 }
 
+function checkCout() {
+	var userData=getCookie("hideSubjects");
+    
+    //console.log(userData);
+    //console.log("prej " + hiddenSubjects);
+    
+    if (userData !== "") {
+    	var ud = userData.split(","); 
+    	alert("tabela: " + ud);
+    	
+    	for(var key in ud) {
+    		hiddenSubjects[key] = ud[key];
+    		var uudd = ud[key].split(":");
+    		//console.log(uudd);
+    		if(uudd[1] === "true") {
+    			//console.log(uudd[0]);
+    			hideBlocksC('#' + uudd[0]);
+    		}
+    	}
+    	//console.log("potem " + hiddenSubjects);
+    } else {
+           setCookie("hideSubjects", hiddenSubjects, 30);
+    }
+}
+
 /* ---------- KONEC ---------- ZA KUKIJE ---------- */
 
 
