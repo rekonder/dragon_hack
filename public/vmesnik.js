@@ -66,7 +66,7 @@ function changeSubjects(){
 */
 
 function checkCout() {
-	var userData=getCookie("hideSubjects");
+	var userData = getCookie("hideSubjects");
     
     //console.log(userData);
     //console.log("prej " + hiddenSubjects);
@@ -96,11 +96,11 @@ function checkCout() {
 
 /* ---------- ZACETEK ---------- NOV ZA PREDMETE ---------- */
 
-function hide(idToHide){
+function hide(idToHide) {
 	$(idToHide).toggle();
 }
 
-function hideBlocks(idToHide){
+function hideBlocks(idToHide) {
 	$(idToHide).toggle();
 	//console.log(idToHide.id);
 
@@ -108,8 +108,7 @@ function hideBlocks(idToHide){
 		if(hiddenSubjects[key].indexOf(idToHide.id) > -1) {
 			if(hiddenSubjects[key].indexOf("true") > -1) {
 				hiddenSubjects[key] = idToHide.id + ":" + false;
-			}
-			else {
+			} else {
 				hiddenSubjects[key] = idToHide.id + ":" + true;
 			}
 		}
@@ -120,12 +119,12 @@ function hideBlocks(idToHide){
 	setCookie("hideSubjects", hiddenSubjects, 30);
 }
 
-function hideBlocksC(idToHide){
+function hideBlocksC(idToHide) {
 	$(idToHide).hide();
 }
 
 /*
-function setSubFrame(subV, x){
+function setSubFrame(subV, x) {
 	$("#vsebinaPredmet" + x).append(
 		'<div class="panel panel-default">' + 
 			'<div class="panel-heading">' +
@@ -140,8 +139,8 @@ function setSubFrame(subV, x){
 }
 */
 
-function setSubFrame2(subVs, x){
-	for(var i in subVs){
+function setSubFrame2(subVs, x) {
+	for(var i in subVs) {
 		$("#vsebinaPredmet" + x).append(
 			'<div class="panel panel-default">' + 
 				'<div class="panel-heading">' +
@@ -156,7 +155,7 @@ function setSubFrame2(subVs, x){
 	}
 }
 
-function setFrame(x){
+function setFrame(x) {
 	$("#vizitke").append(
 		'<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" id="frame' + x + '">' + 
 			'<div class="panel panel-default" id="predmet' + x + '" >' + 
@@ -177,10 +176,10 @@ function setFrame(x){
 $.getJSON( "data/studis.json", function( data ) {
 	var subjects = data.predmeti;
 	var i = 0;
-	for(var key in subjects){
+	for(var key in subjects) {
 		allSubjects[i] = key;
 		setFrame(key);
-		fillSubject(subjects, key);
+		fillSubject(subjects[key], key);
 
 		fillChangeSubjects(key);
 		hiddenSubjects[i] = 'frame' + key + ":" + false;
@@ -197,95 +196,90 @@ $.getJSON( "data/studis.json", function( data ) {
 
 });
 
-function fillSubject(data, x){
-	var subjName = data[x].name;
+function fillSubject(subject, x) {
+	var subjName = subject.name;
 	$("#imePredmet" + x).append("<b><a href='javascript:hide(vsebinaPredmet"+x+")'>"+ x + " | " + subjName+"</a></b>");
 
 	$("#izpiti" + x).append("<table class='table table-hover'> <tr id='stev" + x + "'> <tr id='roki" + x + "'> ");
-	var examDates = data[x].dates.split(",");
-	for(var i in examDates){
-		if(examDates[i] !== ""){
+	var examDates = subject.dates.split(",");
+	for(var i in examDates) {
+		if(examDates[i] !== "") {
 			$("#stev" + x).append('<th>' + (parseInt(i)+1) +'.rok</th>');
 			$("#roki" + x).append('<td>' + examDates[i] +'</td>');
 		}
 	}
 }
 
-function fillChangeSubjects(x){
+function fillChangeSubjects(x) {
 	$('#subjectChkBox').append('<a href="javascript:hideBlocks(frame' + x + ')">' + x + '</a></br>');
 }
 
 
-$.getJSON( "data/urnik.json", function( data ) {
-	var lectures = data.predavanja;
-	var practice = data.vaje;
+$.getJSON( "data/urnik.json", function( timetable ) {
+	var lectures = timetable.predavanja;
+	var practice = timetable.vaje;
 	//console.log(predavanja + " " + vaje );
 
-	for(var key in lectures){
-		fillLectures(lectures, key);
+	for(var key in lectures) {
+		fillLectures(lectures[key], key);
 	}
-	for(var key in practice){
-		fillPractice(practice, key);
+	for(var key in practice) {
+		fillPractice(practice[key], key);
 	}
 });
 
-function fillLectures(lectures, x){
-	var lectureX = lectures[x];
-	//console.log(predX);
+function fillLectures(lectures, x) {
 	$("#predavanja" + x).append("<table id=predavanjaTabela" + x + " class='table table-hover'>");
 
-	for (var key in lectureX){
-		//console.log(predX[key].ucilnica + " " + predX[key].termin + " " + predX[key].predavatelj);
+	for (var key in lectures){;
 		$("#predavanjaTabela" + x).append("<tr>" +
-			"<td>" + lectureX[key].ucilnica + "</td>" +
-			"<td>" + lectureX[key].termin + "</td>" +
-			"<td>" + lectureX[key].predavatelj + "</td>" +
+			"<td>" + lectures[key].ucilnica + "</td>" +
+			"<td>" + lectures[key].termin + "</td>" +
+			"<td>" + lectures[key].predavatelj + "</td>" +
 			"</tr>"
 		);
 	}
 
 	$("#izvajalci" + x).append("<table id='izvajalciTabela" + x + "' class='table table-hover'>");
-	$("#izvajalciTabela" + x).append('<tr id=predavatelj' + x + '> <th>Predavatelj</th> <td><a href="">' + lectureX[0].predavatelj + '</a></td> <td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td> </tr>');
+	$("#izvajalciTabela" + x).append('<tr id=predavatelj' + x + '> <th>Predavatelj</th> <td><a href="">' + lectures[0].predavatelj + '</a></td> <td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td> </tr>');
 }
 
-function fillPractice(practice, x){
-	var practiceX = practice[x];
-	//console.log(vajeX);
+function fillPractice(practice, x) {
 	$("#vaje" + x).append("<table id=vajeTabela" + x + " class='table table-hover'>");
 	
 	var key;
 	var assistantArr = [], idx=0;
-	for (key in practiceX){
+	for (key in practice) {
 		$("#vajeTabela" + x).append("<tr>" +
-			"<td>" + practiceX[key].ucilnica + "</td>" +
-			"<td>" + practiceX[key].termin + "</td>" +
-			"<td>" + practiceX[key].asistent + "</td>" +
+			"<td>" + practice[key].ucilnica + "</td>" +
+			"<td>" + practice[key].termin + "</td>" +
+			"<td>" + practice[key].asistent + "</td>" +
 			"</tr>"
 		);
 
-		if(assistantArr.indexOf(practiceX[key].asistent)<0){
-			assistantArr[idx] = practiceX[key].asistent;
+		if(assistantArr.indexOf(practice[key].asistent)<0) {
+			assistantArr[idx] = practice[key].asistent;
 			idx++;
 			$("#izvajalciTabela" + x).append('<tr id="asistent' + x + idx + '"> <th>Asistent</th> <td>' + assistantArr[idx-1] +'</td> <td><button type="button" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button></td> </tr>');
 		}
 	}
 }
 
-$.getJSON( "data/naloge.json", function( data ) {
+$.getJSON( "data/naloge.json", function( obligations ) {
 	//console.log(data);
 	//console.log(allSubjects);
 
-	var quizzes = data.kvizi;
-	var tasks = data.naloge;
+	var quizzes = obligations.kvizi;
+	var tasks = obligations.naloge;
 
 	var quizzesSubjects = [];
 	for (var i = allSubjects.length - 1; i >= 0; i--) {
 		quizzesSubjects[i]=[];
 	}
-	for(var key1 in allSubjects){
+	for(var key1 in allSubjects) {
 		var i = 0;
-		for(var key2 in quizzes){
-			if(quizzes[key2].name === allSubjects[key1]){
+		for(var key2 in quizzes) {
+			if(quizzes[key2].name === allSubjects[key1]) {
 				quizzesSubjects[key1][i] = quizzes[key2];
 				i++;
 			}
@@ -298,10 +292,10 @@ $.getJSON( "data/naloge.json", function( data ) {
 		tasksSubjects[i] = [];
 	}
 
-	for(var key1 in allSubjects){
+	for(var key1 in allSubjects) {
 		var i = 0;
-		for(var key2 in tasks){
-			if(tasks[key2].name === allSubjects[key1]){
+		for(var key2 in tasks) {
+			if(tasks[key2].name === allSubjects[key1]) {
 				tasksSubjects[key1][i] = tasks[key2];
 				i++;
 			}
@@ -309,61 +303,54 @@ $.getJSON( "data/naloge.json", function( data ) {
 	}
 	//console.log(poPredmNaloge);
 
-	for(var key in quizzesSubjects){
-		fillQuizzes(quizzesSubjects, key);
+	for(var key in quizzesSubjects) {
+		fillQuizzes(quizzesSubjects[key], key);
 	}
-	for(var key in tasksSubjects){
-		fillTasks(tasksSubjects, key);
+	for(var key in tasksSubjects) {
+		fillTasks(tasksSubjects[key], key);
 	}
 });
 
 
-function fillQuizzes(quizzes, x){
-	var quizzesX = quizzes[x];
-
-	if(typeof quizzesX[0] !== "undefined"){
+function fillQuizzes(quizzes, x) {
+	if(typeof quizzes[0] !== "undefined") {
 		//console.log("fillQuizzes" + kviziX[0].name);
-		$("#obveznosti" + quizzesX[0].name).append("<table id=kviziTabela" + quizzesX[0].name + " class='table table-hover'>");
+		$("#obveznosti" + quizzes[0].name).append("<table id=kviziTabela" + quizzes[0].name + " class='table table-hover'>");
 
-		for(var key in quizzesX){
-			$("#kviziTabela" + quizzesX[0].name).append("<tr>" +
+		for(var key in quizzes) {
+			$("#kviziTabela" + quizzes[0].name).append("<tr>" +
 				"<td>kviz</td>" + 
-				"<td><a href='" + quizzesX[key].link+"' target='_blank'>" + quizzesX[key].rok + "</td>" +
+				"<td><a href='" + quizzes[key].link+"' target='_blank'>" + quizzes[key].rok + "</td>" +
 				"</tr>"
 			);
 		}
-	}
-	else{
+	} else {
 		$("#obveznosti" + allSubjects[x]).append("Ni kvizov</br>");
 		// slucajno dela, ni pa zagotovo, da bo delalo v vseh primerih
 	}
 }
 
-function fillTasks(tasks, x){
-	var tasksX = tasks[x];
-
-	if(typeof tasksX[0] !== "undefined"){
+function fillTasks(tasks, x) {
+	if(typeof tasks[0] !== "undefined") {
 		//console.log("fillTasks" + nalX[0].name);
-		$("#obveznosti" + tasksX[0].name).append("<table id=nalogeTabela" + tasksX[0].name + " class='table table-hover'>");
+		$("#obveznosti" + tasks[0].name).append("<table id=nalogeTabela" + tasks[0].name + " class='table table-hover'>");
 		
 		var key;
-		for(key in tasksX){
-			if(tasksX[key].oddano === "da"){
+		for(key in tasks) {
+			if(tasks[key].oddano === "da") {
 				var s = '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'
-			}
-			else{
+			} else {
 				var s = '<span class="glyphicon glyphicon-flag" aria-hidden="true"></span>'
 			}
 
-			$("#nalogeTabela" + tasksX[0].name).append("<tr>" +
+			$("#nalogeTabela" + tasks[0].name).append("<tr>" +
 				"<td>naloga</td>" + 
-				"<td><a href='" + tasksX[key].link + "' target='_blank'>" + tasksX[key].rok + "</td>" +
+				"<td><a href='" + tasks[key].link + "' target='_blank'>" + tasks[key].rok + "</td>" +
 				"<td>"+s+"</td>" +
 				"</tr>"
 			);
 		}
-	}
-	else{
+	} else {
 		$("#obveznosti" + allSubjects[x]).append("Ni nalog</br>");
 		// slucajno dela, ni pa zagotovo, da bo delalo v vseh primerih
 	}
