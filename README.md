@@ -1,5 +1,5 @@
 #Student.INFO - v0.3
-**Dragon Hack Submission by Frikoti** - [view site](http://45.55.254.139:3000/)
+**Dragon Hack Submission by Frikoti** - [view site](https://fri-student-info.firebaseapp.com/)
 
 A webpage designed by and for students of FRI faculty of Ljubljana.
 Our intent was to gather all relevant educational info on a single page from:  
